@@ -9,11 +9,11 @@
         "pretty": "pnpm run format && pnpm run lint",
         "lint": "turbo run lint",
         "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-        "preinstall": "npx only-allow pnpm",
+        "preinstall": "only-allow pnpm",
         "clean": "turbo run clean",
-        "version": "npx changeset version",
-        "changeset": "npx changeset add",
-        "publish": "npm run build && npx changeset publish"
+        "version": "changeset version",
+        "changeset": "changeset add",
+        "publish": "pnpm run build && changeset publish"
     },
     "engines": {
         "node": ">=14.0.0"
