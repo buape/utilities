@@ -11,8 +11,6 @@ export class Experiment {
     settings: {
         forceEnabled: string[]
         forceDisabled: string[]
-        forceEnabledTags: string[]
-        forceDisabledTags: string[]
     }
 
     constructor(rawData: experimentData) {
@@ -23,8 +21,6 @@ export class Experiment {
         this.settings = {
             forceEnabled: this.rawData.force_enabled || [],
             forceDisabled: this.rawData.force_disabled || [],
-            forceEnabledTags: this.rawData.force_enabled_tags || [],
-            forceDisabledTags: this.rawData.force_disabled_tags || [],
         }
 
         this.rolloutPercent = rawData.rollout_percentage > 100 ? 100 : rawData.rollout_percentage
@@ -32,12 +28,9 @@ export class Experiment {
         this.id = murmurhash.v3(this.featureKey)
     }
 
-    async checkAccess(guildId: string, tags: string[]) {
+    async checkAccess(guildId: string) {
         if (this.settings.forceDisabled.includes(guildId)) return false
         if (this.settings.forceEnabled.includes(guildId)) return true
-
-        if (tags.some((x) => this.settings.forceEnabledTags.includes(x))) return true
-        if (tags.some((x) => this.settings.forceDisabledTags.includes(x))) return false
 
         if (this.rolloutPercent === 100) return true
 

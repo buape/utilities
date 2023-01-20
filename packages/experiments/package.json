@@ -2,10 +2,11 @@
     "name": "@buape/experiments",
     "main": "./dist/index.js",
     "typings": "./dist/index.d.ts",
+    "type": "module",
+    "version": "1.0.0",
     "scripts": {
-        "lint": "eslint . --ext .ts --fix",
+        "lint": "eslint . --fix",
         "build": "tsc",
-        "dev": "tsc -w",
         "clean": "rimraf dist"
     },
     "dependencies": {

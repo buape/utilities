@@ -13,7 +13,8 @@
         "clean": "turbo run clean",
         "version": "changeset version",
         "changeset": "changeset add",
-        "publish": "pnpm run build && changeset publish"
+        "publish": "pnpm run build && changeset publish",
+        "test": "pnpm run build && vitest run"
     },
     "engines": {
         "node": ">=14.0.0"
@@ -27,7 +28,8 @@
     },
     "devDependencies": {
         "rimraf": "^4.1.1",
-        "typescript": "^4.7.4"
+        "typescript": "^4.7.4",
+        "vitest": "^0.27.2"
     },
     "workspaces": [
         "apps/*",

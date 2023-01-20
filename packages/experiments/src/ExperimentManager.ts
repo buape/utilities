@@ -11,22 +11,12 @@ export default class ExperimentManager {
 
     async checkExperimentAccess(featureKey: string, guildId: string) {
         const experiment = this.getExperimentByKey(featureKey)
-        if (!experiment) return false // if that isn't an experiment, deny the feature to be safe
-        // Disabled until database support is added
-        // await db.guild.upsert({
-        //     where: {
-        //         id: guildId,
-        //     },
-        //     create: {
-        //         id: guildId,
-        //     },
-        //     update: {},
-        // })
-        return experiment.checkAccess(guildId, [])
+        if (!experiment) return false
+        return experiment.checkAccess(guildId)
     }
 
-    getExperimentByHash(id: string) {
-        return this.experiments.find((e) => e.featureKey === id)
+    getExperimentByHash(id: number) {
+        return this.experiments.find((e) => e.id === id)
     }
 
     getExperimentByKey(key: string) {

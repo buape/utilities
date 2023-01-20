@@ -19,7 +19,7 @@
         "lib": ["ES2021"],
         "module": "ESNext",
         "target": "ES2021",
-        "moduleResolution": "NodeNext",
+        "moduleResolution": "node",
         "resolveJsonModule": true
     },
     "exclude": ["node_modules", "dist"]
