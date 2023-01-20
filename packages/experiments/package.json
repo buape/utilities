@@ -1,13 +1,26 @@
 {
     "name": "@buape/experiments",
     "main": "./dist/index.js",
+    "description": "An experiment manager for use in creating limited rollouts of new features",
     "typings": "./dist/index.d.ts",
     "type": "module",
     "version": "1.0.0",
+    "author": {
+        "name": "Shadow",
+        "email": "hi@shadowing.dev"
+    },
     "scripts": {
         "lint": "eslint . --fix",
         "build": "tsc",
         "clean": "rimraf dist"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/buape/utilities.git"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/buape/utilities/issues"
     },
     "dependencies": {
         "murmurhash": "^2.0.1"
@@ -17,5 +30,8 @@
     },
     "files": [
         "dist"
-    ]
+    ],
+    "engines": {
+        "node": "^16.17.1"
+    }
 }
