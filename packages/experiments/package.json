@@ -1,0 +1,20 @@
+{
+    "name": "@buape/experiments",
+    "main": "./dist/index.js",
+    "typings": "./dist/index.d.ts",
+    "scripts": {
+        "lint": "eslint . --ext .ts --fix",
+        "build": "tsc",
+        "dev": "tsc -w",
+        "clean": "rimraf dist"
+    },
+    "dependencies": {
+        "murmurhash": "^2.0.1"
+    },
+    "devDependencies": {
+        "tsconfig": "workspace:*"
+    },
+    "files": [
+        "dist"
+    ]
+}
