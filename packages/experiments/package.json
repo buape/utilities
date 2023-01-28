@@ -4,7 +4,7 @@
     "description": "An experiment manager for use in creating limited rollouts of new features",
     "typings": "./dist/index.d.ts",
     "type": "module",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "author": {
         "name": "Shadow",
         "email": "hi@shadowing.dev"
