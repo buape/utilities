@@ -14,7 +14,7 @@
         "version": "changeset version",
         "changeset": "changeset add",
         "publish": "pnpm run build && changeset publish",
-        "test": "pnpm run build && vitest run"
+		"test": "turbo run test"
     },
     "engines": {
         "node": ">=14.0.0"
