@@ -11,10 +11,9 @@
         "format": "prettier --write \"**/*.{ts,tsx,md}\"",
         "preinstall": "only-allow pnpm",
         "clean": "turbo run clean",
-        "version": "changeset version",
         "changeset": "changeset add",
-        "publish": "pnpm run build && changeset publish",
-		"test": "turbo run test"
+        "publish": "changeset version && pnpm run build && changeset publish",
+        "test": "turbo run test"
     },
     "engines": {
         "node": ">=14.0.0"
@@ -27,6 +26,7 @@
         "turbo": "latest"
     },
     "devDependencies": {
+        "only-allow": "^1.1.1",
         "rimraf": "^4.1.1",
         "typescript": "^4.7.4",
         "vitest": "^0.27.2"
