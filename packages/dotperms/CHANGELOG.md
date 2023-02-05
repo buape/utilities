@@ -1,5 +1,11 @@
 # @buape/dotperms
 
+## 0.1.1
+
+### Patch Changes
+
+-   6cbe124: Allow both v16 and v18 node.js
+
 ## 0.1.0
 
 ### Minor Changes

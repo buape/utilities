@@ -4,7 +4,7 @@
     "description": "A permissions utilities using permissions in the style of Minecraft",
     "typings": "./dist/index.d.ts",
     "type": "module",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": {
         "name": "Shadow",
         "email": "hi@shadowing.dev"
