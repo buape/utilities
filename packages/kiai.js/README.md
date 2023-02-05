@@ -1,6 +1,8 @@
-# @buape/experiments
+# kiai.js
 
 This package is the official Javascript wrapper for the public API of Kiai.
+
+Note: Kiai is still in beta and not yet released. If you want to join the beta, check us out at https://go.kiai.wtf/discord
 
 ## Installation
 
