@@ -4,7 +4,7 @@
     "description": "The official Javascript wrapper for Kiai",
     "typings": "./dist/index.d.ts",
     "type": "module",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": {
         "name": "Shadow",
         "email": "shadow@buape.com"
@@ -37,5 +37,13 @@
         "@buape/kiai-api-types": "^0.1.0",
         "ms": "^2.1.3",
         "node-fetch": "^3.3.0"
-    }
+    },
+    "keywords": [
+        "kiai",
+        "api",
+        "leveling",
+        "discord",
+        "levels",
+        "buape"
+    ]
 }
