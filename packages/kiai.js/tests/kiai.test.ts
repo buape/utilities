@@ -1,10 +1,10 @@
-import { KiaiClient, LevelData } from "../index"
+import { KiaiClient } from "../index"
 import { expect, expectTypeOf, test } from "vitest"
 
 const testServer = "608098293498511360"
 const testUser = "1068978554223738991"
 
-const matchData: LevelData = {
+const matchData = {
     id: testUser,
     guildId: testServer,
     currentLevel: 1,
