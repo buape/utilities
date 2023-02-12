@@ -39,6 +39,5 @@ jobs:
 
             - name: Test
               run: pnpm test
-              with:
-                TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
-
+              env:
+                  TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
