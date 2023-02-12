@@ -1,11 +1,10 @@
 import { KiaiClient } from "../index"
 import { expect, expectTypeOf, test } from "vitest"
-import { LevelData } from "@buape/kiai-api-types"
 
 const testServer = "608098293498511360"
 const testUser = "1068978554223738991"
 
-const matchData: LevelData = {
+const matchData = {
     id: testUser,
     guildId: testServer,
     currentLevel: 1,
@@ -24,12 +23,12 @@ test("The client should have initalized properly", () => {
 })
 
 test("The client should be able to get a rank", async () => {
-    const rank = await client.getRank(testUser, testServer)
+    const rank = await client.getData(testUser, testServer)
     expectTypeOf(rank).toEqualTypeOf(matchData)
 })
 
 test("The client should be able to add XP", async () => {
-    const oldRank = await client.getRank(testUser, testServer)
+    const oldRank = await client.getData(testUser, testServer)
     const newRank = await client.addXp(testUser, testServer, 15)
     expect(newRank.xp).toBe(oldRank.xp + 15)
 })

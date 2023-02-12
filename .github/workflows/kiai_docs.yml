@@ -1,10 +1,9 @@
-name: CI
+name: Generate kiai.js docs
 
 on:
     push:
-        branches: ["main"]
-    pull_request:
-        types: [opened, synchronize]
+        branches:
+            - main
 
 jobs:
     build:
@@ -34,10 +33,13 @@ jobs:
             - name: Install dependencies
               run: pnpm install
 
-            - name: Build
-              run: pnpm build
+            - name: Generate Docs
+              run: pnpm run docs --filter kiai.js
 
-            - name: Test
-              run: pnpm test
-              env:
-                  TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  publish_branch: kiaijs-docs
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./packages/kiai.js/docs
+                  cname: kiai.js.org

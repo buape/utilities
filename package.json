@@ -13,7 +13,8 @@
         "clean": "turbo run clean",
         "changeset": "changeset add",
         "publish": "changeset version && pnpm run build && changeset publish",
-        "test": "turbo run test"
+        "test": "turbo run test",
+        "docs": "turbo run docs"
     },
     "engines": {
         "node": ">=14.0.0"
@@ -28,6 +29,7 @@
     "devDependencies": {
         "only-allow": "^1.1.1",
         "rimraf": "^4.1.1",
+        "typedoc": "^0.23.25",
         "typescript": "^4.7.4",
         "vitest": "^0.28.4"
     },
