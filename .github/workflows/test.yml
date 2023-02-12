@@ -14,7 +14,6 @@ jobs:
         env:
             TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
             TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-            TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
 
         steps:
             - name: Check out code
@@ -40,3 +39,6 @@ jobs:
 
             - name: Test
               run: pnpm test
+              with:
+                TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
+
