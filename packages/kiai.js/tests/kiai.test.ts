@@ -1,6 +1,5 @@
-import { KiaiClient } from "../index"
+import { KiaiClient, LevelData } from "../index"
 import { expect, expectTypeOf, test } from "vitest"
-import { LevelData } from "@buape/kiai-api-types"
 
 const testServer = "608098293498511360"
 const testUser = "1068978554223738991"
