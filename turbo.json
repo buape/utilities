@@ -12,6 +12,8 @@
         "test": {
             "dependsOn": ["build"]
         },
-        "docs": {}
+        "docs": {
+            "cache": false
+        }
     }
 }
