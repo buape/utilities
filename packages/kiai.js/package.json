@@ -13,7 +13,8 @@
         "lint": "eslint . --fix",
         "build": "tsc",
         "clean": "rimraf dist",
-        "test": "vitest run"
+        "test": "vitest run",
+        "docs": "typedoc"
     },
     "repository": {
         "type": "git",
