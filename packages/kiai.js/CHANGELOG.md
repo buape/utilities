@@ -1,5 +1,11 @@
 # kiai.js
 
+## 0.1.2
+
+### Patch Changes
+
+-   85d2abd: Add documentation and rename getRank to getData
+
 ## 0.1.1
 
 ### Patch Changes

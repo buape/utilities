@@ -4,7 +4,7 @@
     "description": "The official Javascript wrapper for Kiai",
     "typings": "./dist/index.d.ts",
     "type": "module",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "author": {
         "name": "Shadow",
         "email": "shadow@buape.com"
