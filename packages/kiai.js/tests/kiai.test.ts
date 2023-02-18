@@ -1,7 +1,7 @@
 import { KiaiClient } from "../index"
 import { expect, expectTypeOf, test } from "vitest"
 
-const testServer = "608098293498511360"
+const testServer = "1041045270659604701"
 const testUser = "1068978554223738991"
 
 const matchData = {
