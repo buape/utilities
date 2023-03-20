@@ -23,7 +23,7 @@ importers:
     devDependencies:
       only-allow: 1.1.1
       rimraf: 4.4.0
-      typedoc: 0.23.27_typescript@5.0.2
+      typedoc: 0.23.28_typescript@5.0.2
       typescript: 5.0.2
       vitest: 0.29.3
 
@@ -189,7 +189,7 @@ packages:
       semver: 5.7.1
       spawndamnit: 2.0.0
       term-size: 2.2.1
-      tty-table: 4.1.6
+      tty-table: 4.2.1
     dev: false
 
   /@changesets/config/2.3.0:
@@ -3628,8 +3628,8 @@ packages:
       typescript: 5.0.2
     dev: false
 
-  /tty-table/4.1.6:
-    resolution: {integrity: sha512-kRj5CBzOrakV4VRRY5kUWbNYvo/FpOsz65DzI5op9P+cHov3+IqPbo1JE1ZnQGkHdZgNFDsrEjrfqqy/Ply9fw==}
+  /tty-table/4.2.1:
+    resolution: {integrity: sha512-xz0uKo+KakCQ+Dxj1D/tKn2FSyreSYWzdkL/BYhgN6oMW808g8QRMuh1atAV9fjTPbWBjfbkKQpI/5rEcnAc7g==}
     engines: {node: '>=8.0.0'}
     hasBin: true
     dependencies:
@@ -3742,12 +3742,12 @@ packages:
       is-typed-array: 1.1.10
     dev: false
 
-  /typedoc/0.23.27_typescript@5.0.2:
-    resolution: {integrity: sha512-YKjlxX3LEhYbMCkemjlpNh1OKDiFa+ynqP0VRPsH28bEugrMTGI6l8DC6oX5kzFcUKKlYWKpZDSGWszuO/FR3g==}
+  /typedoc/0.23.28_typescript@5.0.2:
+    resolution: {integrity: sha512-9x1+hZWTHEQcGoP7qFmlo4unUoVJLB0H/8vfO/7wqTnZxg4kPuji9y3uRzEu0ZKez63OJAUmiGhUrtukC6Uj3w==}
     engines: {node: '>= 14.14'}
     hasBin: true
     peerDependencies:
-      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x
+      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x
     dependencies:
       lunr: 2.3.9
       marked: 4.2.12
