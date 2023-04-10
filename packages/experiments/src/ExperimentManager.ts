@@ -1,7 +1,7 @@
-import { experimentData } from ".."
+import { experimentData } from "."
 import Experiment from "./Experiment"
 
-export default class ExperimentManager {
+export class ExperimentManager {
     experiments: Experiment[]
     constructor(rawExperiments: experimentData[]) {
         this.experiments = []
@@ -9,7 +9,7 @@ export default class ExperimentManager {
         this.loadExperiments(rawExperiments)
     }
 
-    async checkExperimentAccess(featureKey: string, guildId: string) {
+    checkExperimentAccess(featureKey: string, guildId: string) {
         const experiment = this.getExperimentByKey(featureKey)
         if (!experiment) return false
         return experiment.checkAccess(guildId)

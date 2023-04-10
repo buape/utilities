@@ -14,7 +14,7 @@
         "changeset": "changeset add",
         "publish": "changeset version && pnpm run build && changeset publish",
         "test": "turbo run test",
-        "docs": "turbo run docs"
+        "docs": "typedoc"
     },
     "engines": {
         "node": ">=14.0.0"
@@ -24,7 +24,8 @@
         "eslint-config-custom": "*",
         "prettier": "latest",
         "tsc-watch": "^6.0.0",
-        "turbo": "latest"
+        "turbo": "latest",
+        "unbuild": "^1.2.0"
     },
     "devDependencies": {
         "only-allow": "^1.1.1",

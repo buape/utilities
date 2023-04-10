@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { Permission, UserPermissions, UserPermissionSet } from "../typings"
+import { Permission, UserPermissions, UserPermissionSet } from "."
 
 export class PermissionUser {
     id: string

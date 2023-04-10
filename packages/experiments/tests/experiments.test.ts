@@ -1,4 +1,4 @@
-import { experimentData, ExperimentManager } from "../index"
+import { experimentData, ExperimentManager } from "../src/index"
 import { expect, test } from "vitest"
 
 const data: experimentData[] = [

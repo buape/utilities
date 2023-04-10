@@ -1,5 +1,5 @@
 import { expect, test } from "vitest"
-import { Permission, PermissionUser } from "../index"
+import { Permission, PermissionUser } from "../src/index"
 
 const permissions: Permission[] = ["everything.*", "two.deep", "things.two.*", "three.deep.permission"]
 

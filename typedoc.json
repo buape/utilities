@@ -1,0 +1,7 @@
+{
+	"entryPoints": ["."],
+	"name": "Buape Utilities",
+	"entryPointStrategy": "packages",
+	"includeVersion": true
+}
+
