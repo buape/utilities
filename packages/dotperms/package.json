@@ -1,36 +1,41 @@
 {
-    "name": "@buape/dotperms",
-    "main": "./dist/index.js",
-    "description": "A permissions utilities using permissions in the style of Minecraft",
-    "typings": "./dist/index.d.ts",
-    "type": "module",
-    "version": "0.1.1",
-    "author": {
-        "name": "Shadow",
-        "email": "hi@shadowing.dev"
-    },
-    "scripts": {
-        "lint": "eslint . --fix",
-        "build": "tsc",
-        "clean": "rimraf dist",
-        "test": "vitest run"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/buape/utilities.git"
-    },
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/buape/utilities/issues"
-    },
-    "dependencies": {},
-    "devDependencies": {
-        "tsconfig": "workspace:*"
-    },
-    "files": [
-        "dist"
-    ],
-    "engines": {
-        "node": ">=16.17.1"
-    }
+	"name": "@buape/dotperms",
+	"description": "A permissions utilities using permissions in the style of Minecraft",
+	"type": "module",
+	"version": "0.1.1",
+	"author": {
+		"name": "Shadow",
+		"email": "hi@shadowing.dev"
+	},
+	"scripts": {
+		"lint": "eslint . --fix",
+		"build": "unbuild",
+		"clean": "rimraf dist",
+		"test": "vitest run"
+	},
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/buape/utilities.git"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/buape/utilities/issues"
+	},
+	"dependencies": {},
+	"files": [
+		"dist"
+	],
+	"engines": {
+		"node": ">=16.17.1"
+	}
 }

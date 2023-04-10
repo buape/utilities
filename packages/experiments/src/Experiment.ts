@@ -1,4 +1,4 @@
-import { experimentData } from ".."
+import { experimentData } from "."
 import murmurhash from "murmurhash"
 
 export class Experiment {
@@ -9,9 +9,9 @@ export class Experiment {
     featureKey: string
     rolloutPercent: number
     settings: {
-        forceEnabled: string[]
-        forceDisabled: string[]
-    }
+		forceEnabled: string[]
+		forceDisabled: string[]
+	}
 
     constructor(rawData: experimentData) {
         this.rawData = rawData
@@ -23,12 +23,13 @@ export class Experiment {
             forceDisabled: this.rawData.force_disabled || [],
         }
 
-        this.rolloutPercent = rawData.rollout_percentage > 100 ? 100 : rawData.rollout_percentage
+        this.rolloutPercent =
+			rawData.rollout_percentage > 100 ? 100 : rawData.rollout_percentage
 
         this.id = murmurhash.v3(this.featureKey)
     }
 
-    async checkAccess(guildId: string) {
+    checkAccess(guildId: string) {
         if (this.settings.forceDisabled.includes(guildId)) return false
         if (this.settings.forceEnabled.includes(guildId)) return true
 
