@@ -2,7 +2,7 @@
 	"name": "@buape/experiments",
 	"description": "An experiment manager for use in creating limited rollouts of new features",
 	"type": "module",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"author": {
 		"name": "Shadow",
 		"email": "hi@shadowing.dev"
