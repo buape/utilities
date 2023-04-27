@@ -1,10 +1,17 @@
 import { RateLimitError } from "@buape/kiai-api-types"
 import { RequestHandler } from "./RequestHandler"
+import * as handlers from "./handlers"
 
 export class KiaiClient {
 	apiKey: string
 	baseURL: string
 	debug: boolean
+
+	blacklist = new handlers.Blacklist(this)
+	leveling = new handlers.Leveling(this)
+	multipliers = new handlers.Multipliers(this)
+	rewards = new handlers.Rewards(this)
+	settings = new handlers.Settings(this)
 
 	_requestHandler: RequestHandler
 
@@ -24,7 +31,7 @@ export class KiaiClient {
 	}
 
 	public async getRatelimit() {
-		const res = await this._requestHandler.request("/ratelimit", {}, "GET", {}, true)
+		const res = await this._requestHandler.request("/ratelimit", "GET", {}, {}, true)
 		return res as RateLimitError
 	}
 

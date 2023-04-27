@@ -1,16 +1,29 @@
-import { KiaiClient } from "../index"
+import { ApiPermission, GuildSettings } from "@buape/kiai-api-types"
+import { BaseHandler } from "."
 
-export class Settings {
-	_client: KiaiClient
-	constructor(client: KiaiClient) {
-		this._client = client
+export class Settings extends BaseHandler {
+	async getSettings(guildId: string) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/settings`)) as GuildSettings
+		return result
 	}
 
-	getSettings(guildId: string) {
-		return {}
-	}
+	async getPermissions(guildId: string) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/permissions`)) as number
+		// convert result to an array of permissions from the ApiPermission enum
+		const permissions: ApiPermission[] = []
 
-	getPermissions(guildId: string) {
-		return {}
+		let bit = 0
+		let num = result
+
+		while (num > 0) {
+			if (num & 1) {
+				const permission = 1 << bit
+				permissions.push(permission)
+			}
+			num >>= 1
+			bit++
+		}
+
+		return permissions
 	}
 }

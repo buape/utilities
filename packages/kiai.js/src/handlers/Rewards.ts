@@ -1,24 +1,24 @@
-import { KiaiClient } from "../index"
+import { Message, Reward } from "@buape/kiai-api-types"
+import { BaseHandler } from "."
 
-export class Rewards {
-	_client: KiaiClient
-	constructor(client: KiaiClient) {
-		this._client = client
+export class Rewards extends BaseHandler {
+	async getRewards(guildId: string) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/rewards`)) as Reward[]
+		return result
 	}
 
-	getRewards(guildId: string) {
-		return {}
-	}
-	
-	createReward() {
-		return {}
+	async createReward(guildId: string, data: Reward) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/rewards`, "POST", {}, data)) as Message
+		return result
 	}
 
-	clearRewards() {
-		return {}
+	async clearRewards(guildId: string) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/rewards`, "DELETE")) as Message
+		return result
 	}
 
-	deleteReward() {
-		return {}
+	async deleteReward(guildId: string, id: string) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/rewards/${id}`, "DELETE")) as Message
+		return result
 	}
 }

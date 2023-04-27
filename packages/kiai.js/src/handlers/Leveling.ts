@@ -1,32 +1,49 @@
-import { KiaiClient } from "../index"
+import { Leaderboard, LevelData, Message } from "@buape/kiai-api-types"
+import { BaseHandler } from "."
 
-export class Leveling {
-	_client: KiaiClient
-	constructor(client: KiaiClient) {
-		this._client = client
+export class Leveling extends BaseHandler {
+	async getLeaderboard(guildId: string) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/leaderboard`)) as Leaderboard
+		return result
 	}
 
-	getLeaderboard(guildId: string) {
-		return {}
+	async getMember(guildId: string, userId: string) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/member/${userId}`)) as LevelData
+		return result
 	}
 
-	getMember(guildId: string, userId: string) {
-		return {}
+	async addXp(guildId: string, userId: string, xp: number) {
+		const result = (await this._client._requestHandler.request(
+			`/guild/${guildId}/member/${userId}/xp`,
+			"PATCH",
+			{},
+			{
+				xp
+			}
+		)) as Message
+		return result
 	}
 
-	addXp(guildId: string, userId: string, xp: number) {
-		return {}
+	async removeXp(guildId: string, userId: string, xp: number) {
+		const result = (await this._client._requestHandler.request(
+			`/guild/${guildId}/member/${userId}/xp`,
+			"PATCH",
+			{},
+			{
+				xp,
+				remove: true
+			}
+		)) as Message
+		return result
 	}
 
-	removeXp(guildId: string, userId: string, xp: number) {
-		return this.addXp(guildId, userId, -xp)
+	async setXp(guildId: string, userId: string, xp: number) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/member/${userId}/xp`, "PUT", {}, { xp })) as Message
+		return result
 	}
 
-	setXp(guildId: string, userId: string, xp: number) {
-		return {}
-	}
-
-	setXpBulk(guildId: string, data: { userId: string; xp: number }[]) {
-		return {}
+	async setXpBulk(guildId: string, data: { userId: string; xp: number }[]) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/members/xp`, "PUT", {}, { data })) as Message
+		return result
 	}
 }

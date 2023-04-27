@@ -1,24 +1,28 @@
-import { KiaiClient } from "../index"
+import { BaseHandler } from "."
+import { Blacklist as APIBlacklist, Message } from "@buape/kiai-api-types"
 
-export class Blacklist {
-	_client: KiaiClient
-	constructor(client: KiaiClient) {
-		this._client = client
+export class Blacklist extends BaseHandler {
+	async getBlacklists(guildId: string) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/blacklist`)) as APIBlacklist[]
+		return result
 	}
 
-	getBlacklists(guildId: string) {
-		return {}
+	async createBlacklist(guildId: string, data: APIBlacklist) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/blacklist`, "POST", {}, data)) as Message
+		return result
 	}
 
-	createBlacklist(guildId: string, type: "guild" | "channel" | "role", value: string) {
-		return {}
+	async deleteAllBlacklists(guildId: string) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/blacklist`, "DELETE")) as {
+			users: number
+			roles: number
+			channels: number
+		}
+		return result
 	}
 
-	deleteAllBlacklists(guildId: string) {
-		return {}
-	}
-
-	deleteBlacklist(guildId: string, type: "guild" | "channel" | "role", id: string) {
-		return {}
+	async deleteBlacklist(guildId: string, data: APIBlacklist) {
+		const result = (await this._client._requestHandler.request(`/guild/${guildId}/blacklist/${data.type}/${data.id}`, "DELETE")) as Message
+		return result
 	}
 }

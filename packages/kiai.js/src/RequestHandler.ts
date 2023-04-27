@@ -8,7 +8,13 @@ export class RequestHandler {
 	}
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	async request(endpoint: string, query = {}, method = "GET", body: { [key: string]: any }, noError: boolean = false) {
+	async request(
+		endpoint: string,
+		method: "GET" | "POST" | "PATCH" | "PUT" | "DELETE" = "GET",
+		query = {},
+		body: { [key: string]: any } = {},
+		noError: boolean = false
+	) {
 		const url = `${this._client.baseURL}${endpoint}${toQueryString(query)}`
 		const options = {
 			method,
@@ -23,9 +29,7 @@ export class RequestHandler {
 		try {
 			const res = await fetch(url, options)
 			if (res.status >= 200 && res.status < 300) {
-				const json = (await res.json()) as {
-					[key: string]: unknown
-				}
+				const json = (await res.json())
 				if (this._client.debug) console.debug("Success: \n", json)
 				return json
 			} else if (res.status === 429) {
