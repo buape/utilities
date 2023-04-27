@@ -9,7 +9,6 @@ export class Settings extends BaseHandler {
 
 	async getPermissions(guildId: string) {
 		const result = (await this._client._requestHandler.request(`/guild/${guildId}/permissions`)) as number
-		// convert result to an array of permissions from the ApiPermission enum
 		const permissions: ApiPermission[] = []
 
 		let bit = 0
