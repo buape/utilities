@@ -5,12 +5,12 @@ const testServer = "1041045270659604701"
 const testUser = "1068978554223738991"
 
 const matchData = {
-    id: testUser,
-    guildId: testServer,
-    currentLevel: 1,
-    nextLevel: 2,
-    xp: 0,
-    nextLevelXp: 100,
+	id: testUser,
+	guildId: testServer,
+	currentLevel: 1,
+	nextLevel: 2,
+	xp: 0,
+	nextLevelXp: 100
 }
 
 test("It should do nothing", () => {})

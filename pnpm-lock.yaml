@@ -51,14 +51,14 @@ importers:
   packages/kiai.js:
     dependencies:
       '@buape/kiai-api-types':
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: ^1.0.0
+        version: 1.0.0
       ms:
         specifier: ^2.1.3
         version: 2.1.3
       node-fetch:
-        specifier: ^3.3.0
-        version: 3.3.0
+        specifier: ^3.3.1
+        version: 3.3.1
     devDependencies:
       '@types/ms':
         specifier: ^0.7.31
@@ -281,8 +281,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: false
 
-  /@buape/kiai-api-types@0.1.0:
-    resolution: {integrity: sha512-8SS1GTyXGXQd9L2ujMI7oWXJ9YAkcewnF3Z9JIfN7zU/1TYI25I8i3fqD5DAFEs4aQTrb523YdFFofEp53tzWw==}
+  /@buape/kiai-api-types@1.0.0:
+    resolution: {integrity: sha512-dJfnKXhewkPBaA5KiySDkkJ8X9tJ/hosU4WZ16rTnEgOg7/QNy91GAPXTqfmcoNy6Mj9YyWQv/uFClPRPhwyvQ==}
     dev: false
 
   /@changesets/apply-release-plan@6.1.3:
@@ -2342,8 +2342,8 @@ packages:
     engines: {node: '>=10.5.0'}
     dev: false
 
-  /node-fetch@3.3.0:
-    resolution: {integrity: sha512-BKwRP/O0UvoMKp7GNdwPlObhYGB5DQqwhEDQlNKuoqwVYSxkSZCSbHjnFFmUEtwSKRPU4kNK8PbDYYitwaE3QA==}
+  /node-fetch@3.3.1:
+    resolution: {integrity: sha512-cRVc/kyto/7E5shrWca1Wsea4y6tL9iYJE5FBCius3JQfb/4P4I295PfhgbJQBLTx6lATE4z+wK0rPM4VS2uow==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       data-uri-to-buffer: 4.0.1
