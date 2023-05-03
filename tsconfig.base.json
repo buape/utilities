@@ -15,7 +15,7 @@
         "skipLibCheck": true,
         "strict": true,
         "sourceMap": true,
-        "lib": ["ES2021"],
+        "lib": ["ES2021", "DOM"],
         "module": "ESNext",
         "target": "ES2021",
         "moduleResolution": "node",

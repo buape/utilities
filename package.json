@@ -5,16 +5,17 @@
 	"private": true,
 	"scripts": {
 		"build": "turbo run build",
-		"dev": "dotenv -- turbo run dev",
-		"pretty": "pnpm run format && pnpm run lint",
-		"lint": "turbo run lint",
-		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
-		"preinstall": "only-allow pnpm",
-		"clean": "turbo run clean",
 		"changeset": "changeset add",
+		"clean": "turbo run clean",
+		"db:generate": "turbo run db:generate",
+		"dev": "dotenv -- turbo run dev",
+		"docs": "typedoc",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"lint": "turbo run lint",
+		"preinstall": "only-allow pnpm",
+		"pretty": "pnpm run format && pnpm run lint",
 		"publish": "changeset version && pnpm run build && changeset publish",
-		"test": "turbo run test",
-		"docs": "typedoc"
+		"test": "turbo run test"
 	},
 	"engines": {
 		"node": ">=14.0.0"
@@ -24,7 +25,8 @@
 		"prettier": "latest",
 		"tsc-watch": "^6.0.0",
 		"turbo": "latest",
-		"unbuild": "^1.2.0"
+		"unbuild": "^1.2.0",
+		"vitest-mock-extended": "^1.1.3"
 	},
 	"devDependencies": {
 		"only-allow": "^1.1.1",

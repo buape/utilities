@@ -1,19 +1,20 @@
 {
-    "$schema": "https://turbo.build/schema.json",
-    "pipeline": {
-        "build": {
-            "dependsOn": ["clean", "^build"],
-            "outputs": ["dist/**", ".next/**"]
-        },
-        "lint": {},
-        "clean": {
-            "dependsOn": ["^clean"]
-        },
-        "test": {
-            "dependsOn": ["build"]
-        },
-        "docs": {
-            "cache": false
-        }
-    }
+	"$schema": "https://turbo.build/schema.json",
+	"pipeline": {
+		"build": {
+			"dependsOn": ["clean", "db:generate", "^build"],
+			"outputs": ["dist/**", ".next/**"]
+		},
+		"lint": {},
+		"clean": {
+			"dependsOn": ["^clean"]
+		},
+		"test": {
+			"dependsOn": ["db:generate", "build"]
+		},
+		"docs": {
+			"cache": false
+		},
+		"db:generate": {}
+	}
 }
