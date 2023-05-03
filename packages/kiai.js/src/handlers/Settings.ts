@@ -3,12 +3,12 @@ import { BaseHandler } from "."
 
 export class Settings extends BaseHandler {
 	async getSettings(guildId: string) {
-		const result = (await this._client._requestHandler.request(`/guild/${guildId}/settings`)) as GuildSettings
+		const result = (await this._handler.request(`/guild/${guildId}/settings`)) as GuildSettings
 		return result
 	}
 
 	async getPermissions(guildId: string) {
-		const result = (await this._client._requestHandler.request(`/guild/${guildId}/permissions`)) as number
+		const result = (await this._handler.request(`/guild/${guildId}/permissions`)) as number
 		const permissions: ApiPermission[] = []
 
 		let bit = 0

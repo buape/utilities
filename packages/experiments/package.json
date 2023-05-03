@@ -10,8 +10,7 @@
 	"scripts": {
 		"lint": "eslint . --fix",
 		"build": "unbuild",
-		"clean": "rimraf dist",
-		"test": "vitest run"
+		"clean": "rimraf dist"
 	},
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",

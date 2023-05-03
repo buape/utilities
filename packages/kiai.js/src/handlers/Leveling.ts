@@ -3,17 +3,17 @@ import { BaseHandler } from "."
 
 export class Leveling extends BaseHandler {
 	async getLeaderboard(guildId: string) {
-		const result = (await this._client._requestHandler.request(`/guild/${guildId}/leaderboard`)) as Leaderboard
+		const result = (await this._handler.request(`/guild/${guildId}/leaderboard`)) as Leaderboard
 		return result
 	}
 
 	async getMember(guildId: string, userId: string) {
-		const result = (await this._client._requestHandler.request(`/guild/${guildId}/member/${userId}`)) as LevelData
+		const result = (await this._handler.request(`/guild/${guildId}/member/${userId}`)) as LevelData
 		return result
 	}
 
 	async addXp(guildId: string, userId: string, xp: number) {
-		const result = (await this._client._requestHandler.request(
+		const result = (await this._handler.request(
 			`/guild/${guildId}/member/${userId}/xp`,
 			"PATCH",
 			{},
@@ -25,7 +25,7 @@ export class Leveling extends BaseHandler {
 	}
 
 	async removeXp(guildId: string, userId: string, xp: number) {
-		const result = (await this._client._requestHandler.request(
+		const result = (await this._handler.request(
 			`/guild/${guildId}/member/${userId}/xp`,
 			"PATCH",
 			{},
@@ -38,12 +38,12 @@ export class Leveling extends BaseHandler {
 	}
 
 	async setXp(guildId: string, userId: string, xp: number) {
-		const result = (await this._client._requestHandler.request(`/guild/${guildId}/member/${userId}/xp`, "PUT", {}, { xp })) as Message
+		const result = (await this._handler.request(`/guild/${guildId}/member/${userId}/xp`, "PUT", {}, { xp })) as Message
 		return result
 	}
 
 	async setXpBulk(guildId: string, data: { userId: string; xp: number }[]) {
-		const result = (await this._client._requestHandler.request(`/guild/${guildId}/members/xp`, "PUT", {}, { data })) as Message
+		const result = (await this._handler.request(`/guild/${guildId}/members/xp`, "PUT", {}, { data })) as Message
 		return result
 	}
 }

@@ -1,4 +1,4 @@
-import { KiaiClient } from ".."
+import { RequestHandler } from "../RequestHandler"
 
 export { Blacklist } from "./Blacklist"
 export { Leveling } from "./Leveling"
@@ -7,8 +7,8 @@ export { Rewards } from "./Rewards"
 export { Settings } from "./Settings"
 
 export class BaseHandler {
-	public _client: KiaiClient
-	constructor(client: KiaiClient) {
-		this._client = client
+	public _handler: RequestHandler
+	constructor(handler: RequestHandler) {
+		this._handler = handler
 	}
 }

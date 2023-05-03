@@ -5,15 +5,15 @@ import * as handlers from "./handlers"
 export class KiaiClient {
 	apiKey: string
 	baseURL: string
+	version: `v${string}`
 	debug: boolean
-
-	blacklist = new handlers.Blacklist(this)
-	leveling = new handlers.Leveling(this)
-	multipliers = new handlers.Multipliers(this)
-	rewards = new handlers.Rewards(this)
-	settings = new handlers.Settings(this)
-
 	_requestHandler: RequestHandler
+
+	blacklist: handlers.Blacklist
+	leveling: handlers.Leveling
+	multipliers: handlers.Multipliers
+	rewards: handlers.Rewards
+	settings: handlers.Settings
 
 	/**
 	 * Create a new KiaiClient
@@ -23,11 +23,18 @@ export class KiaiClient {
 	 * @param options.debug Whether to enable debug mode
 	 * @constructor
 	 */
-	constructor(apiKey: string, options?: { baseURL?: string; debug?: boolean }) {
+	constructor(apiKey: string, options?: { baseURL?: string; version: `v${number}`; debug?: boolean }) {
 		this.apiKey = apiKey
-		this.baseURL = options?.baseURL || "https://api.kiaibot.com/v1"
+		this.version = options?.version || "v1"
+		this.baseURL = options?.baseURL || `https://api.kiaibot.com/${this.version}`
 		this.debug = options?.debug || false
-		this._requestHandler = new RequestHandler(this)
+		this._requestHandler = new RequestHandler(this.baseURL, this.apiKey, this.debug)
+
+		this.blacklist = new handlers.Blacklist(this._requestHandler)
+		this.leveling = new handlers.Leveling(this._requestHandler)
+		this.multipliers = new handlers.Multipliers(this._requestHandler)
+		this.rewards = new handlers.Rewards(this._requestHandler)
+		this.settings = new handlers.Settings(this._requestHandler)
 	}
 
 	public async getRatelimit() {

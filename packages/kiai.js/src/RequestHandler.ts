@@ -1,10 +1,14 @@
 import { RateLimitError as APIRateLimitError } from "@buape/kiai-api-types"
 import fetch from "node-fetch"
-import { RatelimitError, KiaiClient, APIError } from "."
+import { RatelimitError, APIError } from "."
 export class RequestHandler {
-	_client: KiaiClient
-	constructor(client: KiaiClient) {
-		this._client = client
+	baseURL: string
+	apiKey: string
+	debug: boolean
+	constructor(baseURL: string, apiKey: string, debug: boolean = false) {
+		this.baseURL = baseURL
+		this.apiKey = apiKey
+		this.debug = debug
 	}
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -15,35 +19,35 @@ export class RequestHandler {
 		body: { [key: string]: any } = {},
 		noError: boolean = false
 	) {
-		const url = `${this._client.baseURL}${endpoint}${toQueryString(query)}`
+		const url = `${this.baseURL}${endpoint}${toQueryString(query)}`
 		const options = {
 			method,
 			headers: {
-				Authorization: this._client.apiKey,
+				Authorization: this.apiKey,
 				"Content-Type": "application/json"
 			},
 			body: body == null || Object.entries(body).length == 0 ? undefined : JSON.stringify(body),
 			timeout: 15000
 		}
-		if (this._client.debug) console.debug(`Sending request to ${url}\nMethod:\n  ${options.method}\nParams:\n  ${JSON.stringify(query)}`)
+		if (this.debug) console.debug(`Sending request to ${url}\nMethod:\n  ${options.method}\nParams:\n  ${JSON.stringify(query)}`)
 		try {
 			const res = await fetch(url, options)
 			if (res.status >= 200 && res.status < 300) {
 				const json = (await res.json())
-				if (this._client.debug) console.debug("Success: \n", json)
+				if (this.debug) console.debug("Success: \n", json)
 				return json
 			} else if (res.status === 429) {
 				const json = (await res.json()) as APIRateLimitError
-				if (this._client.debug) console.debug("Ratelimited: \n", res, json)
+				if (this.debug) console.debug("Ratelimited: \n", res, json)
 				if (noError) return json
 				throw new RatelimitError(res)
 			} else {
 				try {
 					const text = await res.text()
-					if (this._client.debug) console.debug("API Error: \n", res, text)
+					if (this.debug) console.debug("API Error: \n", res, text)
 					throw new APIError(res, text)
 				} catch (err) {
-					if (this._client.debug) console.debug("API Error: \n", res)
+					if (this.debug) console.debug("API Error: \n", res)
 					throw new APIError(res)
 				}
 			}
