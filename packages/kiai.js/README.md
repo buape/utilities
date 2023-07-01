@@ -11,13 +11,14 @@ npm install kiai.js
 ## Usage
 
 ```js
-import { KiaiClient } from "kiai.js"
 const client = new KiaiClient("APIKEY")
 
-client.getData("USERID", "GUILDID") // Returns a levelData object
+client.leveling.addXp("GUILDID", "USERID", 100)
 
-client.addXp("USERID", "GUILDID", 100) // Returns a levelData object
-client.setXp("USERID", "GUILDID", 100) // Returns a levelData object
+client.leveling
+	.getLeaderboard("GUILDID")
+	.then((lb) => console.log(lb))
+	.catch(console.error)
 ```
 
 Full documentation can be found at https://utilities.buape.com

@@ -1,5 +1,13 @@
 # kiai.js
 
+## 1.0.0
+
+### Major Changes
+
+-   700caf3: Implement all v1 API features
+
+    **This is a major release**, and thus, is a breaking change from previous early releases of Kiai.js.
+
 ## 0.1.3
 
 ### Patch Changes
