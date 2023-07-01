@@ -1,4 +1,4 @@
-import { RateLimitError } from "@buape/kiai-api-types"
+import { Message, RateLimitError, VirtualMessage } from "@buape/kiai-api-types"
 import { RequestHandler } from "./RequestHandler"
 import * as handlers from "./handlers"
 
@@ -42,7 +42,8 @@ export class KiaiClient {
 		return res as RateLimitError
 	}
 
-	public async createVirtualMessage() {
-		return {}
+	public async createVirtualMessage(guildId: string, message: VirtualMessage) {
+		const result = (await this._requestHandler.request(`/guilds/${guildId}/virtual-messages`, "POST", {}, message)) as Message
+		return result
 	}
 }
