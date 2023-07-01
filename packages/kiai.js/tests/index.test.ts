@@ -15,7 +15,7 @@ const client = new KiaiClient(process.env.API_KEY, {
 test("The client initalizes properly", async () => {
 	expect(client).toBeDefined()
 	expect(client).toBeInstanceOf(KiaiClient)
-	expect(client.apiKey).toBe(process.env.API_KEY)
+	expect(client.apiKey).toBe(process.env.TEST_API_KEY)
 	expect(client.version).toBe("v1")
 	expect(client.baseURL).toBe("https://api.kiaibot.com/v1")
 	expect(client.debug).toBe(false)
