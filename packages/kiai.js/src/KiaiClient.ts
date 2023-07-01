@@ -1,65 +1,49 @@
-import { LevelData, Message } from "@buape/kiai-api-types"
+import { Message, RateLimitError, VirtualMessage } from "@buape/kiai-api-types"
 import { RequestHandler } from "./RequestHandler"
+import * as handlers from "./handlers"
 
 export class KiaiClient {
-    apiKey: string
-    baseURL: string
-    debug: boolean
+	apiKey: string
+	baseURL: string
+	version: `v${string}`
+	debug: boolean
+	_requestHandler: RequestHandler
 
-    private _requestHandler: RequestHandler
+	blacklist: handlers.Blacklist
+	leveling: handlers.Leveling
+	multipliers: handlers.Multipliers
+	rewards: handlers.Rewards
+	settings: handlers.Settings
 
-    /**
-     * Create a new KiaiClient
-     * @param apiKey The API key to use
-     * @param options The options to use
-     * @param options.baseURL The base URL to use
-     * @param options.debug Whether to enable debug mode
-     * @constructor
-     */
-    constructor(apiKey: string, options?: { baseURL?: string; debug?: boolean }) {
-        this.apiKey = apiKey
-        this.baseURL = options?.baseURL || "https://beta.kiaibot.com/api/v1" //TODO: Remove beta once the API is out of beta
-        this.debug = options?.debug || false
-        this._requestHandler = new RequestHandler(this)
-    }
+	/**
+	 * Create a new KiaiClient
+	 * @param apiKey The API key to use
+	 * @param options The options to use
+	 * @param options.baseURL The base URL to use
+	 * @param options.debug Whether to enable debug mode
+	 * @constructor
+	 */
+	constructor(apiKey: string, options?: { baseURL?: string; version: `v${number}`; debug?: boolean }) {
+		this.apiKey = apiKey
+		this.version = options?.version || "v1"
+		this.baseURL = options?.baseURL || `https://api.kiaibot.com/${this.version}`
+		this.debug = options?.debug || false
+		this._requestHandler = new RequestHandler(this.baseURL, this.apiKey, this.debug)
 
-    /**
-     * Get the current status of the API
-     * @returns {Promise<Message>}
-     */
-    public getStatus = async (): Promise<Message> => {
-        return (await this._requestHandler.request("/status", {}, "GET", {})) as Message
-    }
+		this.blacklist = new handlers.Blacklist(this._requestHandler)
+		this.leveling = new handlers.Leveling(this._requestHandler)
+		this.multipliers = new handlers.Multipliers(this._requestHandler)
+		this.rewards = new handlers.Rewards(this._requestHandler)
+		this.settings = new handlers.Settings(this._requestHandler)
+	}
 
-    /**
-     * Get the current leveling data of a user
-     * @param userId The Discord ID of the user
-     * @param guildId The Discord ID of the guild
-     * @returns {Promise<LevelData>}
-     */
-    public getData = async (userId: string, guildId: string): Promise<LevelData> => {
-        return (await this._requestHandler.request(`/guild/${guildId}/rank/${userId}`, {}, "GET", {})) as LevelData
-    }
+	public async getRatelimit() {
+		const res = await this._requestHandler.request("/ratelimit", "GET", {}, {}, true)
+		return res as RateLimitError
+	}
 
-    /**
-     * Add XP to a user
-     * @param userId The Discord ID of the user
-     * @param guildId The Discord ID of the guild
-     * @param xp The amount of XP to add (set to negative to remove XP)
-     * @returns {Promise<LevelData>}
-     */
-    public addXp = async (userId: string, guildId: string, xp: number): Promise<LevelData> => {
-        return (await this._requestHandler.request(`/guild/${guildId}/editXp/${userId}`, {}, "POST", { xp })) as LevelData
-    }
-
-    /**
-     * Set the XP of a user
-     * @param userId The Discord ID of the user
-     * @param guildId The Discord ID of the guild
-     * @param xp The amount of XP to set
-     * @returns {Promise<LevelData>}
-     */
-    public setXp = async (userId: string, guildId: string, xp: number): Promise<LevelData> => {
-        return (await this._requestHandler.request(`/guild/${guildId}/editXp/${userId}`, {}, "PUT", { xp })) as LevelData
-    }
+	public async createVirtualMessage(guildId: string, message: VirtualMessage) {
+		const result = (await this._requestHandler.request(`/guilds/${guildId}/virtual-messages`, "POST", {}, message)) as Message
+		return result
+	}
 }
