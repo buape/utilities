@@ -1,5 +1,9 @@
 # kiai.js
 
+## 1.0.1
+
+-   Fix bad links to documentation
+
 ## 1.0.0
 
 ### Major Changes
