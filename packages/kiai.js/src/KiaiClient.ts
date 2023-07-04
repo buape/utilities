@@ -23,7 +23,7 @@ export class KiaiClient {
 	 * @param options.debug Whether to enable debug mode
 	 * @constructor
 	 */
-	constructor(apiKey: string, options?: { baseURL?: string; version: `v${number}`; debug?: boolean }) {
+	constructor(apiKey: string, options?: { baseURL?: string; version?: `v${number}`; debug?: boolean }) {
 		this.apiKey = apiKey
 		this.version = options?.version || "v1"
 		this.baseURL = options?.baseURL || `https://api.kiaibot.com/${this.version}`
