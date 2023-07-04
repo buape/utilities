@@ -1,14 +1,17 @@
 import { RateLimitError as APIRateLimitError } from "@buape/kiai-api-types"
 import fetch from "node-fetch"
+import { RequestInfo, RequestInit, Response } from "node-fetch"
 import { RatelimitError, APIError } from "."
 export class RequestHandler {
 	baseURL: string
 	apiKey: string
 	debug: boolean
-	constructor(baseURL: string, apiKey: string, debug: boolean = false) {
+	fetchFunction: ((url: URL | RequestInfo, init?: RequestInit | undefined) => Promise<Response>)
+	constructor(baseURL: string, apiKey: string, debug: boolean = false, fetchFunction: ((url: URL | RequestInfo, init?: RequestInit | undefined) => Promise<Response>) = fetch) {
 		this.baseURL = baseURL
 		this.apiKey = apiKey
 		this.debug = debug
+		this.fetchFunction = fetchFunction
 	}
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,7 +34,7 @@ export class RequestHandler {
 		}
 		if (this.debug) console.debug(`Sending request to ${url}\nMethod:\n  ${options.method}\nParams:\n  ${JSON.stringify(query)}`)
 		try {
-			const res = await fetch(url, options)
+			const res = await this.fetchFunction(url, options)
 			if (res.status >= 200 && res.status < 300) {
 				const json = (await res.json())
 				if (this.debug) console.debug("Success: \n", json)
