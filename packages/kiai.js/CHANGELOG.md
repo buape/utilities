@@ -1,5 +1,15 @@
 # kiai.js
 
+## 1.1.0
+
+### Minor Changes
+
+-   7b0ea3a: Add an option to include a fetchFunction for the client which changes the function RequestHandler uses to contact the API
+
+### Patch Changes
+
+-   42a9c69: Fix a typo in KiaiClient.ts that caused the version field to be required when the options object was included
+
 ## 1.0.1
 
 -   Fix bad links to documentation
