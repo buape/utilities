@@ -1,6 +1,6 @@
 export * from "./accessCheck.js"
 export * from "./emojiList.js"
-export * from "./generateMessage.js"
+export * from "./generateEmbed.js"
 export * from "./generateTimestamp.js"
 export * from "./getFiles.js"
 export * from "./parseUser.js"
