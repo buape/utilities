@@ -1,0 +1,44 @@
+{
+	"name": "@buape/lib",
+	"description": "A lib to do lib things",
+	"type": "module",
+	"version": "1.0.0",
+	"author": {
+		"name": "Shadow",
+		"email": "shadow@buape.com"
+	},
+	"scripts": {
+		"lint": "eslint . --fix",
+		"build": "unbuild",
+		"clean": "rimraf dist"
+	},
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/buape/utilities.git"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/buape/utilities/issues"
+	},
+	"files": [
+		"dist",
+		"LICENSE"
+	],
+	"engines": {
+		"node": ">=16.17.1"
+	},
+	"dependencies": {
+		"@buape/functions": "workspace:^",
+		"discord.js": "^14.10.2"
+	}
+}
