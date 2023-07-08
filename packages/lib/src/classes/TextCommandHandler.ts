@@ -1,6 +1,6 @@
 import { BetterClient, LogLevel, TextCommand } from "../index.js"
 import { Message } from "discord.js"
-import { generateErrorMessage, getFiles } from "@buape/functions"
+import { generateEmbed, getFiles } from "@buape/functions"
 import path from "path"
 
 export default class TextCommandHandler {
@@ -51,7 +51,7 @@ export default class TextCommandHandler {
 		if (!command) return
 
 		const missingPermissions = await command.validate(message)
-		if (missingPermissions) return message.reply(generateErrorMessage(missingPermissions))
+		if (missingPermissions) return message.reply(generateEmbed('error', missingPermissions))
 
 		return this.runCommand(command, message, args)
 	}
@@ -62,7 +62,7 @@ export default class TextCommandHandler {
 		await command.run(message, args).catch(async (error: any): Promise<any> => {
 			this.client.log(`${error}`, LogLevel.ERROR)
 			return message.reply(
-				generateErrorMessage({
+				generateEmbed('error', {
 					title: "An Error Has Occurred",
 					description: `An unexpected error was encountered while running \`${command.key}\`, my developers have already been notified! Feel free to join my support server in the mean time!`
 				})

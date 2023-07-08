@@ -2,7 +2,7 @@
 import ModalSubmit from "./ModalSubmit.js"
 import { BetterClient, LogLevel } from "../index.js"
 import { ComponentType, ModalSubmitInteraction } from "discord.js"
-import { generateErrorMessage, getFiles } from "@buape/functions"
+import { generateEmbed, getFiles } from "@buape/functions"
 import path from "path"
 
 export default class ModalSubmitHandler {
@@ -106,13 +106,15 @@ export default class ModalSubmitHandler {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		modal.run(interaction).catch(async (error: any): Promise<any> => {
 			this.client.log(`${error}`, LogLevel.ERROR)
-			const toSend = generateErrorMessage(
+			const toSend = generateEmbed('error',
 				{
 					title: "An Error Has Occurred",
 					description:
 						"An unexpected error was encountered while submitting, my developers have already been notified! Feel free to join my support server in the mean time!"
 					// footer: { text: `Sentry Event ID: ${sentryId} ` },
 				},
+				[],
+				true,
 				this.client.config.supportServer
 			)
 			if (interaction.replied) return interaction.followUp(toSend)

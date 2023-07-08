@@ -1,6 +1,6 @@
 import { BetterClient, HandlerType, ApplicationCommand, Button, Dropdown, _BaseComponent, LogLevel } from "../index.js"
 import { AnySelectMenuInteraction, ButtonInteraction, CommandInteraction, Message } from "discord.js"
-import { generateErrorMessage, getFiles } from "@buape/functions"
+import { generateEmbed, getFiles } from "@buape/functions"
 import path from "path"
 
 export default class BaseHandler {
@@ -80,13 +80,13 @@ export default class BaseHandler {
 		this.specificChecks(interaction, component)
 
 		const missingPermissions = await component.validate(interaction)
-		if (missingPermissions) return interaction.reply(generateErrorMessage(missingPermissions))
+		if (missingPermissions) return interaction.reply(generateEmbed('error', missingPermissions))
 
 		return this.runComponent(component, interaction)
 	}
 
 	private async runComponent(component: _BaseComponent, interaction: ButtonInteraction | AnySelectMenuInteraction | CommandInteraction) {
-		if (interaction instanceof Message) throw new Error("Failed to initalize Text Command handler")
+		if (interaction instanceof Message) throw new Error("Failed to initialize Text Command handler")
 		this.client.usersUsingBot.add(interaction.user.id)
 
 		if (interaction.isCommand()) {
@@ -113,12 +113,14 @@ export default class BaseHandler {
 
 		await component.run(interaction).catch(async (error: unknown): Promise<unknown> => {
 			this.client.log(`${error}`, LogLevel.ERROR)
-			const toSend = generateErrorMessage(
+			const toSend = generateEmbed('error',
 				{
 					title: "An Error Has Occurred",
 					description:
 						"An unexpected error was encountered while running this button, my developers have already been notified! Feel free to join my support server in the mean time!"
 				},
+				[],
+				true,
 				this.client.config.supportServer
 			)
 			if (interaction.replied) return interaction.followUp(toSend)

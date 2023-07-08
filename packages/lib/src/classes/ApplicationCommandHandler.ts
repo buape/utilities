@@ -2,7 +2,7 @@
 /* eslint-disable guard-for-in */
 import { Collection, ApplicationCommandData, CommandInteraction } from "discord.js"
 import { BetterClient, ApplicationCommand, _BaseHandler, _BaseComponent, HandlerType, LogLevel } from "../index.js"
-import { generateErrorMessage } from "@buape/functions"
+import { generateEmbed } from "@buape/functions"
 
 export default class ApplicationCommandHandler extends _BaseHandler {
 	// Key is `${userID}-${commandName}`.
@@ -54,11 +54,13 @@ export default class ApplicationCommandHandler extends _BaseHandler {
 			if (currentCooldown) {
 				if (currentCooldown > Date.now()) {
 					return interaction.reply(
-						generateErrorMessage(
+						generateEmbed('error',
 							{
 								title: "You are on a cooldown!",
 								description: `Try again <t:${Math.floor(currentCooldown / 1000)}:R>.`
 							},
+							[],
+							true,
 							this.client.config.supportServer
 						)
 					)
