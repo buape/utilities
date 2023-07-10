@@ -40,7 +40,7 @@ module.exports = {
         "no-case-declarations": "off",
         "import/prefer-default-export": "off",
     },
-    ignorePatterns: ["dist/*"],
+    ignorePatterns: ["**/dist/**"],
     settings: {
         "import/resolver": {
             node: {

@@ -11,47 +11,47 @@ import { GeneratedMessage } from "./index.js"
  * @returns The generated message.
  */
 export const generateEmbed = (
-    type: "error" | "success" | "warning",
-    embedInfo: APIEmbed,
-    components: ActionRowBuilder<ButtonBuilder>[] = [],
-    ephemeral = false,
-    supportServer: string | undefined = undefined,
+	type: "error" | "success" | "warning",
+	embedInfo: APIEmbed,
+	components: ActionRowBuilder<ButtonBuilder>[] = [],
+	ephemeral = false,
+	supportServer: string | undefined = undefined
 ): GeneratedMessage => {
-    let color: ColorResolvable
-    switch (type) {
-        case "error":
-            color = 0xed4245
-            break
-        case "success":
-            color = 0x57f287
-            break
-        case "warning":
-            color = 0xfee75c
-            break
-        default:
-            throw new Error(`Invalid message type: ${type}`)
-    }
+	let color: ColorResolvable
+	switch (type) {
+		case "error":
+			color = 0xed4245
+			break
+		case "success":
+			color = 0x57f287
+			break
+		case "warning":
+			color = 0xfee75c
+			break
+		default:
+			throw new Error(`Invalid message type: ${type}`)
+	}
 
-    const embed = new EmbedBuilder(embedInfo).setColor(color).data
-    const embeds = [embed]
+	const embed = new EmbedBuilder(embedInfo).setColor(color).data
+	const embeds = [embed]
 
-    const message: GeneratedMessage = {
-        embeds,
-        components,
-        ephemeral,
-    }
+	const message: GeneratedMessage = {
+		embeds,
+		components,
+		ephemeral
+	}
 
-    if (type === "error" && supportServer) {
-        const supportServerButton = new ButtonBuilder({
-            label: "Support Server",
-            url: supportServer,
-            style: ButtonStyle.Link,
-        })
+	if (type === "error" && supportServer) {
+		const supportServerButton = new ButtonBuilder({
+			label: "Support Server",
+			url: supportServer,
+			style: ButtonStyle.Link
+		})
 
-        const supportServerComponent = new ActionRowBuilder<ButtonBuilder>().addComponents(supportServerButton)
+		const supportServerComponent = new ActionRowBuilder<ButtonBuilder>().addComponents(supportServerButton)
 
-        message.components?.push(supportServerComponent)
-    }
+		message.components?.push(supportServerComponent)
+	}
 
-    return message
+	return message
 }
