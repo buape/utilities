@@ -6,9 +6,9 @@ export class PermissionUser {
     permissions: UserPermissions
 
     /**
-     * @param id The user's ID
-     * @param permissions A list of permissions the user has
-     */
+	 * @param id The user's ID
+	 * @param permissions A list of permissions the user has
+	 */
     constructor(id: string, permissions: Permission[]) {
         this.id = id
         this.permissions = {}
@@ -16,9 +16,9 @@ export class PermissionUser {
     }
 
     /**
-     * List all permissions the user has
-     * @returns An array of permissions the user has
-     */
+	 * List all permissions the user has
+	 * @returns An array of permissions the user has
+	 */
     public list(): Permission[] {
         const returned: Permission[] = []
         for (const group in this.permissions) {
@@ -36,9 +36,9 @@ export class PermissionUser {
     }
 
     /**
-     * Check a permission against the user's permissions
-     * @param permission A string of a permission you want to check (up to 2 subgroups allowed)
-     */
+	 * Check a permission against the user's permissions
+	 * @param permission A string of a permission you want to check (up to 2 subgroups allowed)
+	 */
     public check(permission: Permission) {
         const permTiers = permission.split(".")
         const baseGroup = this.permissions[permTiers[0]]
@@ -72,9 +72,9 @@ export class PermissionUser {
     }
 
     /**
-     * Add a permission to a user
-     * @param permissions An array of permissions to add (up to 2 subgroups)
-     */
+	 * Add a permission to a user
+	 * @param permissions An array of permissions to add (up to 2 subgroups)
+	 */
     public addPermissions(permInput: Permission[]) {
         permInput.forEach((x) => {
             const split = x.split(".")
@@ -103,7 +103,7 @@ export class PermissionUser {
                         groupTwo = userPermGroup[split[0]]
                     }
                     if (typeof groupTwo !== "boolean") {
-                        groupTwo![split[1]] = true
+						groupTwo![split[1]] = true
                     }
                     break
 
@@ -114,7 +114,7 @@ export class PermissionUser {
                         groupD = userPermGroup[split[0]]
                     }
                     if (typeof groupD !== "boolean") {
-                        groupD![split[1]] = true
+						groupD![split[1]] = true
                     }
                     //console.warn("Only permission groups up to 2 deep are supported, the group has been trimmed")
                     break

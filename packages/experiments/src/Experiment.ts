@@ -20,11 +20,10 @@ export class Experiment {
 
         this.settings = {
             forceEnabled: this.rawData.force_enabled || [],
-            forceDisabled: this.rawData.force_disabled || [],
+            forceDisabled: this.rawData.force_disabled || []
         }
 
-        this.rolloutPercent =
-			rawData.rollout_percentage > 100 ? 100 : rawData.rollout_percentage
+        this.rolloutPercent = rawData.rollout_percentage > 100 ? 100 : rawData.rollout_percentage
 
         this.id = murmurhash.v3(this.featureKey)
     }

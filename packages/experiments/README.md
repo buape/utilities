@@ -15,23 +15,23 @@ npm install @buape/experiments
 ```js
 import { ExperimentManager } from "@buape/experiments"
 const data = [
-    {
-        name: "Feature 1",
-        feature_key: "featureOne",
-        rollout_percentage: 50,
-    },
-    {
-        name: "Unreleased Feature",
-        feature_key: "unreleased",
-        rollout_percentage: 0,
-        force_enabled: ["744282929684938844"],
-    },
-    {
-        name: "Released Feature 2",
-        feature_key: "featureTwo",
-        rollout_percentage: 100,
+	{
+		name: "Feature 1",
+		feature_key: "featureOne",
+		rollout_percentage: 50
+	},
+	{
+		name: "Unreleased Feature",
+		feature_key: "unreleased",
+		rollout_percentage: 0,
+		force_enabled: ["744282929684938844"]
+	},
+	{
+		name: "Released Feature 2",
+		feature_key: "featureTwo",
+		rollout_percentage: 100,
 		force_disabled: ["608098293498511360"]
-    },
+	}
 ]
 const manager = new ExperimentManager(data)
 
