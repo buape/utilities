@@ -33,6 +33,7 @@ export default class BetterClient extends Client {
     public modals: Collection<string, ModalSubmit>
     public events: Map<string, EventHandler>
     public hasteStore: Collection<string, string[]>
+    public usersUsingBot = new Set<Snowflake>()
     public sudo: Collection<Snowflake, Snowflake> = new Collection()
     public localeCache: Collection<Snowflake, Locale> = new Collection()
     public userChannelCache: Collection<`${Snowflake}-${Snowflake}`, Snowflake>
