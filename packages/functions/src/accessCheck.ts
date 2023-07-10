@@ -16,7 +16,7 @@ export interface AccessSettings {
  * @example {"staff": "393814075013750315", "admin": "135013865018708735"}
  */
 export interface AccessRoles {
-	[key: string]: Snowflake
+	[key: string]: Snowflake[]
 }
 
 /**
