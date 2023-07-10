@@ -8,8 +8,8 @@ const user = new PermissionUser("testuser", permissions)
 const starUser = new PermissionUser("everything", ["*"])
 
 test("PermissionUsers should initalize correctly", () => {
-	expect(user).toBeInstanceOf(PermissionUser)
-	expect(user.list()).toHaveLength(permissions.length)
+    expect(user).toBeInstanceOf(PermissionUser)
+    expect(user.list()).toHaveLength(permissions.length)
 })
 
 // TODO: Fix errors here
@@ -20,23 +20,23 @@ test("PermissionUsers should initalize correctly", () => {
 //     expect(starUser.check("everything.two.three")).toBe(true)
 // })
 test("Star permission at level 2 should give a level 2 permission", () => {
-	expect(user.check("everything.two")).toBe(true)
+    expect(user.check("everything.two")).toBe(true)
 })
 // test("Star permission at level 2 should give a level 3 permission", () => {
 //     expect(user.check("everything.two.three")).toBe(true)
 // })
 test("Star permission at level 3 should give a level 3 permission", () => {
-	expect(user.check("things.two.three")).toBe(true)
+    expect(user.check("things.two.three")).toBe(true)
 })
 test("Permission at level 2 should give a level 2 permission", () => {
-	expect(user.check("two.deep")).toBe(true)
+    expect(user.check("two.deep")).toBe(true)
 })
 test("Permission at level 3 should give a level 3 permission", () => {
-	expect(user.check("three.deep.permission")).toBe(true)
+    expect(user.check("three.deep.permission")).toBe(true)
 })
 test("Permission at level 2 should not be given without the permission or a staf", () => {
-	expect(user.check("two.notdeep")).toBe(false)
+    expect(user.check("two.notdeep")).toBe(false)
 })
 test("Permission at level 3 should give a level 3 permission", () => {
-	expect(user.check("three.deep.not")).toBe(false)
+    expect(user.check("three.deep.not")).toBe(false)
 })

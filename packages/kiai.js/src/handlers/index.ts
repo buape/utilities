@@ -7,8 +7,8 @@ export { Rewards } from "./Rewards"
 export { Settings } from "./Settings"
 
 export class BaseHandler {
-	public _handler: RequestHandler
-	constructor(handler: RequestHandler) {
-		this._handler = handler
-	}
+    public _handler: RequestHandler
+    constructor(handler: RequestHandler) {
+        this._handler = handler
+    }
 }
