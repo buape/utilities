@@ -3,6 +3,7 @@
 import { Collection, ApplicationCommandData, CommandInteraction } from "discord.js"
 import { BetterClient, ApplicationCommand, _BaseHandler, _BaseComponent, HandlerType, LogLevel } from "../index.js"
 import { generateEmbed } from "@buape/functions"
+import { generateTimestamp } from "@buape/functions"
 
 export default class ApplicationCommandHandler extends _BaseHandler {
     // Key is `${userID}-${commandName}`.
@@ -24,14 +25,7 @@ export default class ApplicationCommandHandler extends _BaseHandler {
             await Promise.all(
                 this.client.guilds.cache.map((guild) =>
                     guild.commands.set([]).catch((error) => {
-                        if (error.code === 50001) {
-                            this.client.log(
-                                `I encountered DiscordAPIError: Missing Access in ${guild.name} [${guild.id}] when trying to set slash commands!`,
-                                LogLevel.ERROR
-                            )
-                        } else {
-                            this.client.log(`${error}`, LogLevel.ERROR)
-                        }
+                        this.client.log(`${error}`, LogLevel.ERROR)
                     }))
             )
         }, 5000)
@@ -57,7 +51,7 @@ export default class ApplicationCommandHandler extends _BaseHandler {
                             "error",
                             {
                                 title: "You are on a cooldown!",
-                                description: `Try again <t:${Math.floor(currentCooldown / 1000)}:R>.`
+                                description: `Try again ${generateTimestamp({ timestamp: currentCooldown, type: "R" })}.`
                             },
                             [],
                             true,

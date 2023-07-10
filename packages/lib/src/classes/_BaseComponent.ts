@@ -39,7 +39,7 @@ export default class BaseComponent {
             if (this.ownerOnly && interaction.guild?.ownerId !== interaction.user.id) {
                 return {
                     title: "Missing Permissions",
-                    description: "This action can only be ran by the owner of this guild!"
+                    description: "This action can only be ran by the owner of this server!"
                 }
             }
             if (this.permissions && !interaction.memberPermissions?.has(this.permissions)) {

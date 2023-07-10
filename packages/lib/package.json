@@ -1,6 +1,6 @@
 {
 	"name": "@buape/lib",
-	"description": "A lib to do lib things",
+	"description": "A simple framework to create cross-platform Discord and Guilded bots",
 	"type": "module",
 	"version": "1.0.0",
 	"author": {

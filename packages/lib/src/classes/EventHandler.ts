@@ -1,31 +1,23 @@
 import { ClientEvents } from "discord.js"
-import { BetterClient, LogLevel } from "../index.js"
+import { BetterClient, EventOptions, LogLevel } from "../index.js"
 
 export default class EventHandler {
-    /**
-	 * The name of our event.
-	 */
-    public readonly name: keyof ClientEvents
-
-    /**
-	 * Our client.
-	 */
+    public readonly name: keyof ClientEvents | string
     public readonly client: BetterClient
 
-    /**
-	 * The listener for our event.
-	 */
     private readonly _listener
+    private readonly once: boolean
 
     /**
 	 * Create our event.
 	 * @param client - Our client.
-	 * @param name - The name of our client.
+	 * @param options - The options for our event.
 	 */
-    constructor(client: BetterClient, name: keyof ClientEvents) {
-        this.name = name
+    constructor(client: BetterClient, options: EventOptions) {
+        this.name = options.name || __filename.slice(__dirname.length + 1, -3)
         this.client = client
         this._listener = this._run.bind(this)
+        this.once = options.once || false
     }
 
     /**
@@ -52,6 +44,7 @@ export default class EventHandler {
 	 * Listen for our event.
 	 */
     public listen() {
+        if (this.once) return this.client.once(this.name, this._listener)
         return this.client.on(this.name, this._listener)
     }
 

@@ -13,7 +13,12 @@ export enum LogLevel {
 }
 
 import { AccessSettings } from "@buape/functions"
-import { ApplicationCommandOptionData, ApplicationCommandType, ClientOptions, PermissionsBitField } from "discord.js"
+import { ApplicationCommandOptionData, ApplicationCommandType, ClientEvents, ClientOptions, PermissionsBitField } from "discord.js"
+
+export interface EventOptions {
+	name?: keyof ClientEvents | string
+	once?: boolean
+}
 
 export interface BaseComponentOptions {
 	permissions?: PermissionsBitField
