@@ -2,15 +2,47 @@ import { BetterClient, BaseComponentOptions, LogLevel } from "../index.js"
 import { APIEmbed, BaseInteraction, PermissionsBitField } from "discord.js"
 import { checkAccess, titleCase } from "@buape/functions"
 
+/**
+ * The base component class that other components extend from.
+ */
 export default class BaseComponent {
+    /**
+	 * The client that instantiated this component.
+	 */
     public readonly client: BetterClient
+    /**
+	 * The key of this component.
+	 * This is used to identify the component, and is usually used as the custom ID or the command name.
+	 */
     public readonly key: string
+    /**
+	 * The permissions required from the user to run this component.
+	 */
     public readonly permissions?: PermissionsBitField
+    /**
+	 * The permissions required from the application to run this component.
+	 */
     private readonly clientPermissions?: PermissionsBitField
+    /**
+	 * The access role required to run this component.
+	 */
     private readonly restriction?: string
+    /**
+	 * Whether this component can only be used in guilds.
+	 */
     private readonly guildOnly: boolean
+    /**
+	 * Whether this component can only be used by the owner of the guild.
+	 */
     private readonly ownerOnly: boolean
+    /**
+	 * The cooldown of this component.
+	 * This is in milliseconds.
+	 */
     public readonly cooldown: number
+    /**
+	 * Whether this component can only be used by the author of the interaction.
+	 */
     public readonly authorOnly: boolean
 
     constructor(key: string, client: BetterClient, options: BaseComponentOptions) {

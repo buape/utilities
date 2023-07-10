@@ -11,8 +11,19 @@ import { BetterClient, ApplicationCommandOptions } from "../index.js"
 import BaseComponent from "./_BaseComponent.js"
 
 export default class ApplicationCommand extends BaseComponent {
+    /**
+	 * The description of the command
+	 */
     public readonly description: string
+    /**
+	 * The type of the command
+	 * @default ApplicationCommandType.ChatInput
+	 */
     public readonly type: ApplicationCommandType = ApplicationCommandType.ChatInput
+    /**
+	 * The options of the command
+	 * @default []
+	 */
     public readonly options: ApplicationCommandOptionData[] = []
 
     constructor(key: string, client: BetterClient, options: ApplicationCommandOptions) {

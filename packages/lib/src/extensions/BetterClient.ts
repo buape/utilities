@@ -20,7 +20,6 @@ import {
 import path from "path"
 
 export default class BetterClient extends Client {
-    public usersUsingBot: Set<string>
     public readonly applicationCommandHandler: ApplicationCommandHandler
     public applicationCommands: Collection<string, ApplicationCommand>
     public readonly textCommandHandler: TextCommandHandler
@@ -53,8 +52,6 @@ export default class BetterClient extends Client {
         this.config = config
 
         this.__dirname = `${resolve()}/dist`
-
-        this.usersUsingBot = new Set()
 
         this.applicationCommandHandler = new ApplicationCommandHandler(this)
         this.applicationCommands = new Collection()
