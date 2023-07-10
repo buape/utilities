@@ -7,19 +7,19 @@
  * @returns The URL to the uploaded content.
  */
 export const uploadHaste = async (content: string, userAgent: string, type = "md", url = "https://haste.buape.com"): Promise<string | null> => {
-	const postUrl = `${url}/documents`
-	const options: RequestInit = {
-		method: "POST",
-		body: content,
-		headers: {
-			"User-Agent": userAgent
-		}
-	}
-	const res = await fetch(postUrl, options)
+    const postUrl = `${url}/documents`
+    const options: RequestInit = {
+        method: "POST",
+        body: content,
+        headers: {
+            "User-Agent": userAgent
+        }
+    }
+    const res = await fetch(postUrl, options)
 
-	if (!res.ok) {
-		throw new Error("Failed to upload haste")
-	}
-	const data: { [key: string]: unknown } = await res.json()
-	return `${url}/${data.key}.${type}`
+    if (!res.ok) {
+        throw new Error("Failed to upload haste")
+    }
+    const data: { [key: string]: unknown } = await res.json()
+    return `${url}/${data.key}.${type}`
 }

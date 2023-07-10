@@ -6,10 +6,10 @@ import { TimestampStylesString } from "discord.js"
  * @returns The generated timestamp.
  */
 export const generateTimestamp = (options?: GenerateTimestampOptions): string => {
-	let timestamp = options?.timestamp || new Date()
-	const type = options?.type || "f"
-	if (timestamp instanceof Date) timestamp = timestamp.getTime()
-	return `<t:${Math.floor(timestamp / 1000)}:${type}>`
+    let timestamp = options?.timestamp || new Date()
+    const type = options?.type || "f"
+    if (timestamp instanceof Date) timestamp = timestamp.getTime()
+    return `<t:${Math.floor(timestamp / 1000)}:${type}>`
 }
 
 /**
