@@ -4,7 +4,7 @@ import { getFiles, uploadHaste } from "@buape/functions"
 import {
 	ApplicationCommand,
 	ApplicationCommandHandler,
-	AutoCompleteHandler,
+	AutocompleteHandler,
 	Button,
 	ButtonHandler,
 	Dropdown,
@@ -29,7 +29,7 @@ export default class BetterClient extends Client {
 	public buttons: Collection<string, Button>
 	public readonly dropdownHandler: DropdownHandler
 	public dropdowns: Collection<string, Dropdown>
-	public readonly autoCompleteHandler: AutoCompleteHandler
+	public readonly autocompleteHandler: AutocompleteHandler
 	public readonly modalSubmitHandler: ModalSubmitHandler
 	public modals: Collection<string, ModalSubmit>
 	public events: Map<string, EventHandler>
@@ -58,7 +58,7 @@ export default class BetterClient extends Client {
 
 		this.applicationCommandHandler = new ApplicationCommandHandler(this)
 		this.applicationCommands = new Collection()
-		this.autoCompleteHandler = new AutoCompleteHandler(this)
+		this.autocompleteHandler = new AutocompleteHandler(this)
 
 		this.textCommandHandler = new TextCommandHandler(this)
 		this.textCommands = new Collection()

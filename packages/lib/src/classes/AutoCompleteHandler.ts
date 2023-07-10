@@ -1,14 +1,14 @@
 import { AutocompleteInteraction } from "discord.js"
 import { BetterClient, ApplicationCommand, LogLevel } from "../index.js"
 
-export default class AutoCompleteHandler {
+export default class AutocompleteHandler {
 	/**
 	 * Our client.
 	 */
 	private readonly client: BetterClient
 
 	/**
-	 * Create our AutoCompleteHandler.
+	 * Create our AutocompleteHandler.
 	 * @param client - Our client.
 	 */
 	constructor(client: BetterClient) {
@@ -16,38 +16,37 @@ export default class AutoCompleteHandler {
 	}
 
 	/**
-	 * Fetch the autoComplete with the provided name.
+	 * Fetch the autocomplete with the provided name.
 	 * @param name - The name to search for.
-	 * @returns The autoComplete we've found.
+	 * @returns The autocomplete we've found.
 	 */
-	private fetchAutoComplete(name: string): ApplicationCommand | undefined {
-		return this.client.applicationCommands.find((autoComplete) => autoComplete.key === name)
+	private fetchAutocomplete(name: string): ApplicationCommand | undefined {
+		return this.client.applicationCommands.find((autocomplete) => autocomplete.key === name)
 	}
 
 	/**
-	 * Handle the interaction created for this autoComplete to make sure the user and client can execute it.
+	 * Handle the interaction created for this autocomplete to make sure the user and client can execute it.
 	 * @param interaction - The interaction created.
 	 */
-	public async handleAutoComplete(interaction: AutocompleteInteraction) {
-		const autoComplete = this.fetchAutoComplete(interaction.commandName)
-		if (!autoComplete) return
+	public async handleAutocomplete(interaction: AutocompleteInteraction) {
+		const autocomplete = this.fetchAutocomplete(interaction.commandName)
+		if (!autocomplete) return
 
-		return this.runAutoComplete(autoComplete, interaction)
+		return this.runAutocomplete(autocomplete, interaction)
 	}
 
 	/**
-	 * Execute our autoComplete.
-	 * @param autoComplete - The autoComplete we want to execute.
-	 * @param interaction - The interaction for our autoComplete.
+	 * Execute our autocomplete.
+	 * @param autocomplete - The autocomplete we want to execute.
+	 * @param interaction - The interaction for our autocomplete.
 	 */
-	private async runAutoComplete(autoComplete: ApplicationCommand, interaction: AutocompleteInteraction) {
+	private async runAutocomplete(autocomplete: ApplicationCommand, interaction: AutocompleteInteraction) {
 		const focused = interaction.options.getFocused(true)
 
-		autoComplete
+		autocomplete
 			.autocomplete(interaction, focused)
 
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			.catch(async (error): Promise<any> => {
+						.catch(async (error): Promise<any> => {
 				this.client.log(error, LogLevel.ERROR)
 				if (!interaction.responded) return interaction.respond([])
 			})

@@ -34,6 +34,8 @@
 		"unbuild": "^1.2.0"
 	},
 	"devDependencies": {
+		"eslint-import-resolver-typescript": "^3.5.5",
+		"eslint-plugin-import": "^2.27.5",
 		"only-allow": "^1.1.1",
 		"rimraf": "^5.0.0",
 		"typedoc": "^0.24.0",

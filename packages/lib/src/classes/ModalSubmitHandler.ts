@@ -74,13 +74,11 @@ export default class ModalSubmitHandler {
 			const user = await this.client.users.fetch(sudoAs)
 			if (!user) return interaction.reply(`Unable to sudo, user ${sudoAs} not found.`)
 			this.client.log(`${interaction.user.tag} [${interaction.user.id}] sudo'd as ${sudoAs}`)
-			// eslint-disable-next-line no-param-reassign
-			interaction.user = user
+						interaction.user = user
 			if (interaction.guild) {
 				const member = await interaction.guild.members.fetch(sudoAs)
 				if (!member) return interaction.reply(`Unable to sudo, user ${sudoAs} not in this guild and this is a guild only command.`)
-				// eslint-disable-next-line no-param-reassign
-				interaction.member = member
+								interaction.member = member
 			}
 		}
 
@@ -94,8 +92,7 @@ export default class ModalSubmitHandler {
 	 */
 	private async runModal(modal: ModalSubmit, interaction: ModalSubmitInteraction) {
 		const optionData = interaction.components
-			// eslint-disable-next-line array-callback-return
-			.map((x) => {
+						.map((x) => {
 				const component = x.components[0]
 				if (component.type === ComponentType.TextInput) {
 					return `${component.customId}: ${component.value}`
@@ -103,8 +100,7 @@ export default class ModalSubmitHandler {
 			})
 			.join("\n")
 		this.client.log(`${interaction.user.tag} [${interaction.user.id}] submitted the Modal ${modal.name}\n\`\`\`${optionData}\`\`\``)
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		modal.run(interaction).catch(async (error: any): Promise<any> => {
+				modal.run(interaction).catch(async (error: any): Promise<any> => {
 			this.client.log(`${error}`, LogLevel.ERROR)
 			const toSend = generateEmbed('error',
 				{

@@ -32,8 +32,7 @@ export default class EventHandler {
 	 * Execute our event.
 	 * @param args - The arguments for our event.
 	 */
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	private async _run(...args: any) {
+		private async _run(...args: any) {
 		try {
 			return await this.run(...args)
 		} catch (error) {
@@ -45,8 +44,7 @@ export default class EventHandler {
 	 * Execute our event.
 	 * @param _args - The arguments for our event.
 	 */
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any, no-empty-function, @typescript-eslint/no-unused-vars
-	public async run(..._args: any): Promise<any> {}
+		public async run(..._args: any): Promise<any> {}
 
 	/**
 	 * Listen for our event.

@@ -16,6 +16,5 @@ export default class Button extends _BaseComponent {
 		return null
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any, no-empty-function, @typescript-eslint/no-unused-vars
-	public override async run(_interaction: ButtonInteraction): Promise<any> {}
+		public override async run(_interaction: ButtonInteraction): Promise<any> {}
 }

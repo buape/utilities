@@ -27,6 +27,5 @@ export default class ModalSubmit {
 	 * Run this modal.
 	 * @param _interaction - The interaction that was created.
 	 */
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any, no-empty-function, @typescript-eslint/no-unused-vars
-	public async run(_interaction: ModalSubmitInteraction): Promise<any> {}
+		public async run(_interaction: ModalSubmitInteraction): Promise<any> {}
 }

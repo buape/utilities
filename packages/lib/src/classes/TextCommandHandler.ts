@@ -42,8 +42,7 @@ export default class TextCommandHandler {
 	}
 
 	public async handle(message: Message) {
-		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-		const prefix = `<@${this.client.user!.id}> `
+				const prefix = `<@${this.client.user!.id}> `
 		if (!prefix || !message.content.startsWith(prefix)) return
 		const args = message.content.slice(prefix.length).trim().split(/ +/g)
 		const commandName = args.shift()?.toLowerCase()
@@ -58,8 +57,7 @@ export default class TextCommandHandler {
 
 	private async runCommand(command: TextCommand, message: Message, args: string[]) {
 		this.client.usersUsingBot.add(message.author.id)
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		await command.run(message, args).catch(async (error: any): Promise<any> => {
+				await command.run(message, args).catch(async (error: any): Promise<any> => {
 			this.client.log(`${error}`, LogLevel.ERROR)
 			return message.reply(
 				generateEmbed('error', {

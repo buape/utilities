@@ -81,10 +81,8 @@ export default class Type {
 	 * Walks the linked list backwards, for checking circulars.
 	 */
 	private *parents() {
-		// eslint-disable-next-line consistent-this, @typescript-eslint/no-this-alias
-		let current: Type | undefined = this
-		// eslint-disable-next-line no-cond-assign
-		while ((current = current.parent)) yield current
+				let current: Type | undefined = this
+				while ((current = current.parent)) yield current
 	}
 
 	/**

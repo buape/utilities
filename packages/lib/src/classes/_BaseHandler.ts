@@ -28,8 +28,8 @@ export default class BaseHandler {
 					this.client[this.type].set(component.key, component)
 				}
 			}
-		} catch (e) {
-			console.log(e)
+		} catch (error) {
+			console.log(error)
 			this.client.log(`Failed to load files for ${this.type} handler`, LogLevel.WARN)
 		}
 		this.postLoad()
@@ -47,7 +47,6 @@ export default class BaseHandler {
 	}
 
 	// Override in specific handlers
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	public async specificChecks(
 		interaction: ButtonInteraction | AnySelectMenuInteraction | CommandInteraction,
 		component: _BaseComponent
@@ -67,12 +66,10 @@ export default class BaseHandler {
 			const user = await this.client.users.fetch(sudoAs)
 			if (!user) return interaction.reply(`Unable to sudo, user ${sudoAs} not found.`)
 			this.client.log(`${interaction.user.tag} [${interaction.user.id}] sudo'd as ${sudoAs}, running ${this.type}: ${key}`, LogLevel.INFO)
-			// eslint-disable-next-line no-param-reassign
 			interaction.user = user
 			if (interaction.guild) {
 				const member = await interaction.guild.members.fetch(sudoAs)
 				if (!member) return interaction.reply(`Unable to sudo, user ${sudoAs} not in this guild and this is a guild only command.`)
-				// eslint-disable-next-line no-param-reassign
 				interaction.member = member
 			}
 		}
@@ -80,7 +77,7 @@ export default class BaseHandler {
 		this.specificChecks(interaction, component)
 
 		const missingPermissions = await component.validate(interaction)
-		if (missingPermissions) return interaction.reply(generateEmbed('error', missingPermissions))
+		if (missingPermissions) return interaction.reply(generateEmbed("error", missingPermissions))
 
 		return this.runComponent(component, interaction)
 	}
@@ -113,7 +110,8 @@ export default class BaseHandler {
 
 		await component.run(interaction).catch(async (error: unknown): Promise<unknown> => {
 			this.client.log(`${error}`, LogLevel.ERROR)
-			const toSend = generateEmbed('error',
+			const toSend = generateEmbed(
+				"error",
 				{
 					title: "An Error Has Occurred",
 					description:

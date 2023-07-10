@@ -65,21 +65,19 @@ export default class BaseComponent {
 		if (this.restriction && !(await checkAccess(interaction.user.id, this.restriction, this.client.config.accessSettings, this.client))) {
 			return {
 				title: "Missing Permissions",
-				description: `This action can only be used by ${this.client.user?.username || "the bot"} ${titleCase(this.restriction)}s!`
+				description: `This action can only be used by ${this.client.user?.username || "the bot"} ${this.restriction}s!`
 			}
 		}
 
 		const specifics = await this.specificValidate(interaction)
-		if (specifics) return specifics
-		return null
+		return specifics ?? null
 	}
 
 	public async specificValidate(_interaction: BaseInteraction): Promise<APIEmbed | null> {
 		return null
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	public async run(interaction: BaseInteraction): Promise<any> {
+		public async run(interaction: BaseInteraction): Promise<any> {
 		this.client.log(`${interaction}`, LogLevel.NULL) // This line is here to prevent unused variable errors.
 		throw new Error("Not implemented")
 	}

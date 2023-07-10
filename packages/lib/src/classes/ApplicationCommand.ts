@@ -23,11 +23,8 @@ export default class ApplicationCommand extends BaseComponent {
 	}
 
 	public override async run(
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		_interaction: MessageContextMenuCommandInteraction | UserContextMenuCommandInteraction | ChatInputCommandInteraction
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any, no-empty-function
 	): Promise<any> {}
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any, no-empty-function, @typescript-eslint/no-unused-vars
 	public async autocomplete(_interaction: AutocompleteInteraction, _option: AutocompleteFocusedOption): Promise<void> {}
 }

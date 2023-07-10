@@ -4,7 +4,7 @@ import { APIGuildMember } from "discord.js"
 
 /**
  * The settings to use for access checking.
- *
+ * @example {"roles": {"staff": "393814075013750315", "admin": "135013865018708735"}, "server": "135013865018708735"}
  */
 export interface AccessSettings {
 	roles: AccessRoles
@@ -29,25 +29,25 @@ export interface AccessRoles {
  * @param client - The discord.js Client.
  */
 export const checkAccess = async (user: Snowflake, restriction: string, settings: AccessSettings, client: Client): Promise<boolean> => {
-	if (process.env.NODE_ENV === "development")
-		return client.application?.owner instanceof User
-			? client.application?.owner?.id === user
-			: client.application?.owner?.members?.has(user) || false
+    if (process.env.NODE_ENV === "development")
+        return client.application?.owner instanceof User
+            ? client.application?.owner?.id === user
+            : client.application?.owner?.members?.has(user) ?? false
 
-	if (!settings.roles[restriction]) throw new Error(`No role was specified for the restriction type ${restriction}`)
+    if (!settings.roles[restriction]) throw new Error(`No role was specified for the restriction type ${restriction}.`)
 
-	const data = await client.shard?.broadcastEval(
-		async (c, { settings, user }) => {
-			const staffGuild = await c.guilds.fetch(settings.server).catch(() => {})
-			if (!staffGuild) return null
-			return await staffGuild.members.fetch(user)
-		},
-		{ context: { settings, user } }
-	)
+    const data = await client.shard?.broadcastEval(
+        async (client, { settings, user }) => {
+            const staffGuild = await client.guilds.fetch(settings.server).catch(() => {})
+            if (!staffGuild) return null
+            return await staffGuild.members.fetch(user)
+        },
+        { context: { settings, user } }
+    )
 
-	const member = data?.find((d) => d !== null) as APIGuildMember
+    const member = data?.find((d) => d !== null) as APIGuildMember | undefined
 
-	if (!member) return false
+    if (!member) return false
 
-	return member.roles.includes(settings.roles[restriction])
+    return member.roles.includes(settings.roles[restriction])
 }

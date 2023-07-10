@@ -24,6 +24,5 @@ export default class TextCommand {
 		return null
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any, no-empty-function, @typescript-eslint/no-unused-vars
-	public async run(_message: Message, _args: string[]): Promise<any> {}
+		public async run(_message: Message, _args: string[]): Promise<any> {}
 }
