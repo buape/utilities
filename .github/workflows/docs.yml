@@ -33,6 +33,9 @@ jobs:
             - name: Install dependencies
               run: pnpm install
 
+            - name: Build packages for monorepo use
+              run: pnpm run build
+
             - name: Generate Docs
               run: pnpm run docs
 
