@@ -49,5 +49,5 @@ export const checkAccess = async (user: Snowflake, restriction: string, settings
 
     if (!member) return false
 
-    return member.roles.includes(settings.roles[restriction])
+    return member.roles.some((role) => settings.roles[restriction].includes(role))
 }
