@@ -8,14 +8,14 @@
 import { Response } from "node-fetch"
 
 export class APIError extends Error {
-    name: string
-    status: number
-    message: string
+	name: string
+	status: number
+	message: string
 
-    constructor(response: Response, message?: string) {
-        super()
-        this.name = this.constructor.name
-        this.status = response.status
-        this.message = message ?? "No message provided"
-    }
+	constructor(response: Response, message?: string) {
+		super()
+		this.name = this.constructor.name
+		this.status = response.status
+		this.message = message ?? "No message provided"
+	}
 }
