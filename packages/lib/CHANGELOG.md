@@ -1,5 +1,13 @@
 # @buape/lib
 
+## 1.0.1
+
+### Patch Changes
+
+-   Bump discord.js version
+-   Updated dependencies
+    -   @buape/functions@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

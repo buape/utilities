@@ -2,7 +2,7 @@
 	"name": "@buape/lib",
 	"description": "A simple framework to create cross-platform Discord and Guilded bots",
 	"type": "module",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": {
 		"name": "Shadow",
 		"email": "shadow@buape.com"
@@ -39,6 +39,6 @@
 	},
 	"dependencies": {
 		"@buape/functions": "workspace:^",
-		"discord.js": "^14.10.2"
+		"discord.js": "^14.11.0"
 	}
 }
