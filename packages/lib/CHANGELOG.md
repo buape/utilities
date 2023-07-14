@@ -1,5 +1,11 @@
 # @buape/lib
 
+## 1.0.2
+
+### Patch Changes
+
+-   Implement a fix for **filename and **dirname not being available in ES modules
+
 ## 1.0.1
 
 ### Patch Changes
