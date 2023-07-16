@@ -1,5 +1,11 @@
 # kiai.js
 
+## 1.1.2
+
+### Patch Changes
+
+-   Bump kiai-api-types to properly support cjs
+
 ## 1.1.1
 
 ### Patch Changes
