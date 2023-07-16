@@ -12,7 +12,7 @@ export default class EventHandler {
     private readonly once: boolean
 
     private __filename = fileURLToPath(import.meta.url)
-    private __dirname = path.dirname(__filename)
+    private __dirname = path.dirname(this.__filename)
 
     /**
 	 * Create our event.
