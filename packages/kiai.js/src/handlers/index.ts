@@ -1,12 +1,4 @@
-import { RequestHandler } from "../RequestHandler"
-
-export class BaseHandler {
-    public _handler: RequestHandler
-    constructor(handler: RequestHandler) {
-        this._handler = handler
-    }
-}
-
+export { BaseHandler } from "./BaseHandler"
 export { Blacklist } from "./Blacklist"
 export { Leveling } from "./Leveling"
 export { Multipliers } from "./Multipliers"
