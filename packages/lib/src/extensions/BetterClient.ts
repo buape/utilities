@@ -100,7 +100,7 @@ export default class BetterClient extends Client {
 
                         const eventFile = await import(fileUrl)
                         const eventName = eventFileName.split(".")[0]
-                        const event = new eventFile.default(this, eventName)
+                        const event = new eventFile.default(this, { name: eventName }) as EventHandler
                         event.listen()
 
                         this.events.set(event.name, event)

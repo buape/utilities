@@ -1,8 +1,6 @@
 import { ClientEvents } from "discord.js"
 import { BetterClient, EventOptions, LogLevel } from "../index.js"
 
-import path from "path"
-import { fileURLToPath } from "url"
 
 export default class EventHandler {
     public readonly name: keyof ClientEvents | string
@@ -11,16 +9,13 @@ export default class EventHandler {
     private readonly _listener
     private readonly once: boolean
 
-    private __filename = fileURLToPath(import.meta.url)
-    private __dirname = path.dirname(this.__filename)
-
     /**
 	 * Create our event.
 	 * @param client - Our client.
 	 * @param options - The options for our event.
 	 */
     constructor(client: BetterClient, options: EventOptions) {
-        this.name = options.name || this.__filename.slice(this.__dirname.length + 1, -3)
+        this.name = options.name
         this.client = client
         this._listener = this._run.bind(this)
         this.once = options.once || false
