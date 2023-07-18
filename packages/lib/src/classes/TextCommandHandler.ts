@@ -1,12 +1,12 @@
-import { BetterClient, LogLevel, TextCommand } from "../index.js"
+import { LibClient, LogLevel, TextCommand } from "../index.js"
 import { Message } from "discord.js"
 import { generateEmbed, getFiles } from "@buape/functions"
 import path from "path"
 
 export default class TextCommandHandler {
-    public client: BetterClient
+    public client: LibClient
 
-    constructor(client: BetterClient) {
+    constructor(client: LibClient) {
         this.client = client
     }
 

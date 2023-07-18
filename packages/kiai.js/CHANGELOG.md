@@ -1,18 +1,5 @@
 # kiai.js
 
-## 1.1.2
-
-### Patch Changes
-
--   Bump kiai-api-types to properly support cjs
-
-## 1.1.1
-
-### Patch Changes
-
--   413feb6: Fix kiai.js to work in CJS by fixing an error
--   e7be584: Downgrade node-fetch from v3 to v2 to ensure CJS compatibility
-
 ## 1.1.0
 
 ### Minor Changes

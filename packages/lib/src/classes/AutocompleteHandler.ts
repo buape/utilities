@@ -1,17 +1,17 @@
 import { AutocompleteInteraction } from "discord.js"
-import { BetterClient, ApplicationCommand, LogLevel } from "../index.js"
+import { LibClient, ApplicationCommand, LogLevel } from "../index.js"
 
 export default class AutocompleteHandler {
     /**
 	 * Our client.
 	 */
-    private readonly client: BetterClient
+    private readonly client: LibClient
 
     /**
 	 * Create our AutocompleteHandler.
 	 * @param client - Our client.
 	 */
-    constructor(client: BetterClient) {
+    constructor(client: LibClient) {
         this.client = client
     }
 

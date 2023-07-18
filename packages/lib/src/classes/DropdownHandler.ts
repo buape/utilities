@@ -1,7 +1,7 @@
-import { BetterClient, _BaseHandler, HandlerType } from "../index.js"
+import { LibClient, _BaseHandler, HandlerType } from "../index.js"
 
 export default class DropdownHandler extends _BaseHandler {
-    constructor(client: BetterClient) {
+    constructor(client: LibClient) {
         super(HandlerType.Dropdown, client)
     }
 }

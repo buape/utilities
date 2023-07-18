@@ -1,5 +1,5 @@
 import { ModalSubmitInteraction } from "discord.js"
-import { BetterClient } from "../index.js"
+import { LibClient } from "../index.js"
 
 export default class ModalSubmit {
     /**
@@ -10,7 +10,7 @@ export default class ModalSubmit {
     /**
 	 * Our client.
 	 */
-    public readonly client: BetterClient
+    public readonly client: LibClient
 
     /**
 	 * Create our modal.
@@ -18,7 +18,7 @@ export default class ModalSubmit {
 	 * @param client - Our client.
 	 * @param options - The options for our modal.
 	 */
-    constructor(name: string, client: BetterClient) {
+    constructor(name: string, client: LibClient) {
         this.name = name
         this.client = client
     }

@@ -1,6 +1,6 @@
 /* eslint-disable import/order */
 import ModalSubmit from "./ModalSubmit.js"
-import { BetterClient, LogLevel } from "../index.js"
+import { LibClient, LogLevel } from "../index.js"
 import { ComponentType, ModalSubmitInteraction } from "discord.js"
 import { generateEmbed, getFiles } from "@buape/functions"
 import path from "path"
@@ -9,13 +9,13 @@ export default class ModalSubmitHandler {
     /**
 	 * Our client.
 	 */
-    private readonly client: BetterClient
+    private readonly client: LibClient
 
     /**
 	 * Create our ModalSubmitHandler.
 	 * @param client - Our client.
 	 */
-    constructor(client: BetterClient) {
+    constructor(client: LibClient) {
         this.client = client
     }
 

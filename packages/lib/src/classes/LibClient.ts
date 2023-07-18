@@ -1,5 +1,5 @@
 import { resolve } from "path"
-import { Client, Collection, Locale, Snowflake } from "discord.js"
+import { Client as DiscordClient, Collection, Locale, Snowflake } from "discord.js"
 import { getFiles, uploadHaste } from "@buape/functions"
 import {
     ApplicationCommand,
@@ -7,6 +7,7 @@ import {
     AutocompleteHandler,
     Button,
     ButtonHandler,
+    DiscordListener,
     Dropdown,
     DropdownHandler,
     EventHandler,
@@ -18,8 +19,12 @@ import {
     TextCommandHandler
 } from "../index.js"
 import path from "path"
+import { Client as GuildedClient } from "guilded.js"
 
-export default class BetterClient extends Client {
+export default class LibClient {
+    public readonly discordClient: DiscordClient
+    public readonly guildedClient: GuildedClient
+
     public readonly applicationCommandHandler: ApplicationCommandHandler
     public applicationCommands: Collection<string, ApplicationCommand>
     public readonly textCommandHandler: TextCommandHandler
@@ -38,18 +43,16 @@ export default class BetterClient extends Client {
     public localeCache: Collection<Snowflake, Locale> = new Collection()
     public userChannelCache: Collection<`${Snowflake}-${Snowflake}`, Snowflake>
     public config: LibConfig
-
-    /**
-	 * __dirname is not in our version of ECMA, so we make do with a shitty fix.
-	 */
     public readonly __dirname: string
+    public readonly discordListener: DiscordListener
 
     /**
 	 * Create our client.
 	 * @param options - The options for our client.
 	 */
     constructor(config: LibConfig) {
-        super(config.clientOptions)
+        this.discordClient = new DiscordClient(config.discordOptions)
+        this.guildedClient = new GuildedClient(config.guildedOptions)
         this.config = config
 
         this.__dirname = `${resolve()}/dist`
@@ -81,7 +84,15 @@ export default class BetterClient extends Client {
         this.applicationCommandHandler.loadFiles()
         this.textCommandHandler.loadFiles()
         this.modalSubmitHandler.loadModals()
+
+        this.discordListener = new DiscordListener(this)
+
         this.loadEvents()
+        this.loadListeners()
+    }
+
+    private async loadListeners() {
+        this.discordListener.startListening()
     }
 
     /**
@@ -100,7 +111,7 @@ export default class BetterClient extends Client {
 
                         const eventFile = await import(fileUrl)
                         const eventName = eventFileName.split(".")[0]
-                        const event = new eventFile.default(this, { name: eventName }) as EventHandler
+                        const event = new eventFile.default(this, eventName)
                         event.listen()
 
                         this.events.set(event.name, event)

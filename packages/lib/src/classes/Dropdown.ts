@@ -1,8 +1,8 @@
-import { BetterClient, _BaseComponent, DropdownOptions } from "../index.js"
+import { LibClient, _BaseComponent, DropdownOptions } from "../index.js"
 import { AnySelectMenuInteraction, APIEmbed } from "discord.js"
 
 export default class Dropdown extends _BaseComponent {
-    constructor(key: string, client: BetterClient, options?: DropdownOptions) {
+    constructor(key: string, client: LibClient, options?: DropdownOptions) {
         super(key, client, options || {})
     }
 

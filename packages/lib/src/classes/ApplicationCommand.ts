@@ -7,7 +7,7 @@ import {
     MessageContextMenuCommandInteraction,
     UserContextMenuCommandInteraction
 } from "discord.js"
-import { BetterClient, ApplicationCommandOptions } from "../index.js"
+import { LibClient, ApplicationCommandOptions } from "../index.js"
 import BaseComponent from "./_BaseComponent.js"
 
 export default class ApplicationCommand extends BaseComponent {
@@ -26,7 +26,7 @@ export default class ApplicationCommand extends BaseComponent {
 	 */
     public readonly options: ApplicationCommandOptionData[] = []
 
-    constructor(key: string, client: BetterClient, options: ApplicationCommandOptions) {
+    constructor(key: string, client: LibClient, options: ApplicationCommandOptions) {
         super(key, client, options)
         this.description = options.description
         this.options = options.options || []

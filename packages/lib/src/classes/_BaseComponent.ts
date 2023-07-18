@@ -1,4 +1,4 @@
-import { BetterClient, BaseComponentOptions, LogLevel } from "../index.js"
+import { LibClient, BaseComponentOptions, LogLevel } from "../index.js"
 import { APIEmbed, BaseInteraction, PermissionsBitField } from "discord.js"
 import { checkAccess, titleCase } from "@buape/functions"
 
@@ -9,7 +9,7 @@ export default class BaseComponent {
     /**
 	 * The client that instantiated this component.
 	 */
-    public readonly client: BetterClient
+    public readonly client: LibClient
     /**
 	 * The key of this component.
 	 * This is used to identify the component, and is usually used as the custom ID or the command name.
@@ -45,7 +45,7 @@ export default class BaseComponent {
 	 */
     public readonly authorOnly: boolean
 
-    constructor(key: string, client: BetterClient, options: BaseComponentOptions) {
+    constructor(key: string, client: LibClient, options: BaseComponentOptions) {
         this.key = key
         this.client = client
         if (options.permissions) this.permissions = options.permissions
@@ -94,10 +94,13 @@ export default class BaseComponent {
             }
         }
 
-        if (this.restriction && !(await checkAccess(interaction.user.id, this.restriction, this.client.config.accessSettings, this.client))) {
+        if (
+            this.restriction &&
+			!(await checkAccess(interaction.user.id, this.restriction, this.client.config.accessSettings, this.client.discordClient))
+        ) {
             return {
                 title: "Missing Permissions",
-                description: `This action can only be used by ${this.client.user?.username || "the bot"} ${this.restriction}s!`
+                description: `This action can only be used by ${this.client.discordClient.user?.username || "the bot"} ${this.restriction}s!`
             }
         }
 

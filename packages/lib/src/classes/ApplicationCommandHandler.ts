@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable guard-for-in */
 import { Collection, ApplicationCommandData, CommandInteraction } from "discord.js"
-import { BetterClient, ApplicationCommand, _BaseHandler, _BaseComponent, HandlerType, LogLevel } from "../index.js"
+import { LibClient, ApplicationCommand, _BaseHandler, _BaseComponent, HandlerType, LogLevel } from "../index.js"
 import { generateEmbed } from "@buape/functions"
 import { generateTimestamp } from "@buape/functions"
 
@@ -9,7 +9,7 @@ export default class ApplicationCommandHandler extends _BaseHandler {
     // Key is `${userID}-${commandName}`.
     private cooldowns: Collection<string, number>
 
-    constructor(client: BetterClient) {
+    constructor(client: LibClient) {
         super(HandlerType.ApplicationCommand, client)
         this.cooldowns = new Collection()
     }

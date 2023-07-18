@@ -1,5 +1,15 @@
+import { AccessSettings } from "@buape/functions"
+import {
+    ApplicationCommandOptionData,
+    ApplicationCommandType,
+    ClientEvents,
+    ClientOptions as DiscordClientOptions,
+    PermissionsBitField
+} from "discord.js"
+import { ClientOptions as GuildedClientOptions } from "guilded.js"
 export interface LibConfig {
-	clientOptions: ClientOptions
+	discordOptions: DiscordClientOptions
+	guildedOptions: GuildedClientOptions
 	accessSettings: AccessSettings
 	supportServer: string
 }
@@ -12,11 +22,8 @@ export enum LogLevel {
 	NULL = "null"
 }
 
-import { AccessSettings } from "@buape/functions"
-import { ApplicationCommandOptionData, ApplicationCommandType, ClientEvents, ClientOptions, PermissionsBitField } from "discord.js"
-
 export interface EventOptions {
-	name: keyof ClientEvents | string
+	name?: keyof ClientEvents | string
 	once?: boolean
 }
 

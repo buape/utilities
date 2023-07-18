@@ -1,13 +1,13 @@
-import { BetterClient, HandlerType, ApplicationCommand, Button, Dropdown, _BaseComponent, LogLevel } from "../index.js"
+import { LibClient, HandlerType, ApplicationCommand, Button, Dropdown, _BaseComponent, LogLevel, ReceivedInteraction } from "../index.js"
 import { AnySelectMenuInteraction, ButtonInteraction, CommandInteraction, Message } from "discord.js"
 import { generateEmbed, getFiles } from "@buape/functions"
 import path from "path"
 
 export default class BaseHandler {
     private type: HandlerType
-    public client: BetterClient
+    public client: LibClient
 
-    constructor(type: HandlerType, client: BetterClient) {
+    constructor(type: HandlerType, client: LibClient) {
         this.type = type
         this.client = client
     }
@@ -54,7 +54,7 @@ export default class BaseHandler {
         return this.client.log(`${interaction}${component}`, LogLevel.NULL) // This line is here to prevent unused variable errors
     }
 
-    public async handleComponent(interaction: ButtonInteraction | AnySelectMenuInteraction | CommandInteraction) {
+    public async handleComponent(interaction: ReceivedInteraction) {
         const key = interaction.isCommand() ? interaction.commandName : interaction.customId.split(":")[0]
         if (interaction.isMessageComponent() && interaction.customId.startsWith("x-"))
             return this.client.log(`Ignoring ${this.type} with key ${key}, it should be handled with a collector on a message.`, LogLevel.DEBUG)

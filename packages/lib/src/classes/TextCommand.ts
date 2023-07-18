@@ -1,13 +1,13 @@
 import { APIEmbed, Message } from "discord.js"
-import { BetterClient, TextCommandOptions } from "../index.js"
+import { LibClient, TextCommandOptions } from "../index.js"
 import { checkAccess, titleCase } from "@buape/functions"
 
 export default class TextCommand {
-    public readonly client: BetterClient
+    public readonly client: LibClient
     public readonly key: string
     private readonly restriction?: string
 
-    constructor(key: string, client: BetterClient, options: TextCommandOptions) {
+    constructor(key: string, client: LibClient, options: TextCommandOptions) {
         this.key = key
         this.client = client
         if (this.restriction) this.restriction = options.restriction
