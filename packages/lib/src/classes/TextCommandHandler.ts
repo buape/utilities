@@ -60,6 +60,7 @@ export default class TextCommandHandler {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         await command.run(message, args).catch(async (error: any): Promise<any> => {
             this.client.log(`${error}`, LogLevel.ERROR)
+            if (error instanceof Error) this.client.log(`${error.stack}`, LogLevel.ERROR)
             return message.reply(
                 generateEmbed("error", {
                     title: "An Error Has Occurred",

@@ -31,6 +31,7 @@ export default class EventHandler {
             return await this.run(...args)
         } catch (error) {
             this.client.log(`${error}`, LogLevel.ERROR)
+            if (error instanceof Error) this.client.log(`${error.stack}`, LogLevel.ERROR)
         }
     }
 
