@@ -1,11 +1,5 @@
 # @buape/lib
 
-## 1.0.5
-
-### Patch Changes
-
--   Made handler errors log the stack trace
-
 ## 1.0.4
 
 ### Patch Changes
