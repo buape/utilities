@@ -110,6 +110,7 @@ export default class BaseHandler {
 
         await component.run(interaction).catch(async (error: unknown): Promise<unknown> => {
             this.client.log(`${error}`, LogLevel.ERROR)
+			if (error instanceof Error) this.client.log(`${error.stack}`, LogLevel.ERROR)
             const toSend = generateEmbed(
                 "error",
                 {
