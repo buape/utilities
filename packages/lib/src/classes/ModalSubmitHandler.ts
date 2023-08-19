@@ -103,7 +103,7 @@ export default class ModalSubmitHandler {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         modal.run(interaction).catch(async (error: any): Promise<any> => {
             this.client.log(`${error}`, LogLevel.ERROR)
-			if (error instanceof Error) this.client.log(`${error.stack}`, LogLevel.ERROR)
+            if (error instanceof Error) this.client.log(`${error.stack}`, LogLevel.ERROR)
             const toSend = generateEmbed(
                 "error",
                 {
