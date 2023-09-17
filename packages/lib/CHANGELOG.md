@@ -1,10 +1,5 @@
 # @buape/lib
 
-## 1.0.5
-
-### Patch Changes
-
--   Fix a bug where context menu commands were not being registered
 ## 1.0.4
 
 ### Patch Changes
