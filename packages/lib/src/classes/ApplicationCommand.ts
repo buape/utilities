@@ -28,7 +28,7 @@ export default class ApplicationCommand extends BaseComponent {
 
     constructor(key: string, client: BetterClient, options: ApplicationCommandOptions) {
         super(key, client, options)
-        this.description = options.description
+        this.description = options.description || ""
         this.options = options.options || []
         this.type = options.type || ApplicationCommandType.ChatInput
     }

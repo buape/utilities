@@ -36,7 +36,8 @@ export default class ApplicationCommandHandler extends _BaseHandler {
         const data: ApplicationCommandData = {
             name: command.key,
             description: command.description || "",
-            options: command.options
+            options: command.options,
+            type: command.type
         }
         return data
     }
