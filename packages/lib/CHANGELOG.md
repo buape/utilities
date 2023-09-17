@@ -1,5 +1,12 @@
 # @buape/lib
 
+## 1.0.6
+
+### Patch Changes
+
+-   34d962c: fix(#93): ctx cmds not registering
+-   b1f45f1: Made handler errors log the stack trace
+
 ## 1.0.4
 
 ### Patch Changes
