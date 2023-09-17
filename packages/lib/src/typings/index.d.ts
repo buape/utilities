@@ -31,7 +31,7 @@ export interface BaseComponentOptions {
 }
 
 export interface ApplicationCommandOptions extends BaseComponentOptions {
-	description: string
+	description?: string
 	options?: ApplicationCommandOptionData[]
 	type?: ApplicationCommandType
 }
