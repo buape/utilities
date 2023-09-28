@@ -26,7 +26,7 @@
 		"@typescript-eslint/parser": "^6.0.0",
 		"dotenv-cli": "^7.2.1",
 		"eslint": "^8.38.0",
-		"eslint-config-prettier": "^8.8.0",
+		"eslint-config-prettier": "^9.0.0",
 		"eslint-config-turbo": "latest",
 		"prettier": "latest",
 		"tsc-watch": "^6.0.0",
