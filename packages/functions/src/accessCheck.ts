@@ -28,11 +28,13 @@ export interface AccessRoles {
  * @param settings - The settings to use for access checking.
  * @param client - The discord.js Client.
  */
-export const checkAccess = async (user: Snowflake, restriction: string, settings: AccessSettings, client: Client): Promise<boolean> => {
+export const checkAccess = async (user: Snowflake, restriction: string | Array<string>, settings: AccessSettings, client: Client): Promise<boolean> => {
     if (process.env.NODE_ENV === "development")
         return client.application?.owner instanceof User
             ? client.application?.owner?.id === user
             : client.application?.owner?.members?.has(user) ?? false
+
+    if (Array.isArray(restriction)) return restriction.some((r) => checkAccess(user, r, settings, client))
 
     if (!settings.roles[restriction]) throw new Error(`No role was specified for the restriction type ${restriction}.`)
 
