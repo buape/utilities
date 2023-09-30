@@ -1,5 +1,11 @@
 # @buape/functions
 
+## 1.0.2
+
+### Patch Changes
+
+-   99adb23: feat: Support multiple restriction checks at once
+
 ## 1.0.1
 
 ### Patch Changes
