@@ -1,5 +1,13 @@
 # @buape/lib
 
+## 1.0.8
+
+### Patch Changes
+
+-   Lock command permissions at an API level.
+
+    Previously, permissions were handled by the bot itself. This meant that there were no overrides at a Discord API level for our commands, and as far as the API was concerned all users could access all commands. This is no longer the case, and the correct permission overrides will be applied upon command registration.
+
 ## 1.0.7
 
 ### Patch Changes
