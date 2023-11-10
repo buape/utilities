@@ -22,6 +22,7 @@ export interface EventOptions {
 
 export interface BaseComponentOptions {
 	permissions?: PermissionsBitField
+	dmPermission?: boolean
 	clientPermissions?: PermissionsBitField
 	restriction?: string
 	guildOnly?: boolean

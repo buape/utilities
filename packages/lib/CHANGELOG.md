@@ -1,5 +1,17 @@
 # @buape/lib
 
+## 1.0.10
+
+### Patch Changes
+
+-   fixes for api locked cmd perms
+
+## 1.0.9
+
+### Patch Changes
+
+-   Fixes bug with API Locking Command Perms, adds dmPermission support.
+
 ## 1.0.8
 
 ### Patch Changes

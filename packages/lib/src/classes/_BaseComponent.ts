@@ -20,6 +20,10 @@ export default class BaseComponent {
 	 */
     public readonly permissions?: PermissionsBitField
     /**
+	 * Whether this component can be used in DMs.
+	 */
+    public readonly dmPermission?: boolean
+    /**
 	 * The permissions required from the application to run this component.
 	 */
     private readonly clientPermissions?: PermissionsBitField
