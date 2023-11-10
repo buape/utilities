@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable guard-for-in */
-import { Collection, ApplicationCommandData, CommandInteraction } from "discord.js"
+import { Collection, ApplicationCommandData, CommandInteraction, PermissionsBitField } from "discord.js"
 import { BetterClient, ApplicationCommand, _BaseHandler, _BaseComponent, HandlerType, LogLevel } from "../index.js"
 import { generateEmbed } from "@buape/functions"
 import { generateTimestamp } from "@buape/functions"
@@ -37,7 +37,8 @@ export default class ApplicationCommandHandler extends _BaseHandler {
             name: command.key,
             description: command.description || "",
             options: command.options,
-            type: command.type
+            type: command.type,
+            defaultMemberPermissions: command.permissions || new PermissionsBitField("SendMessages"),
         }
         return data
     }
