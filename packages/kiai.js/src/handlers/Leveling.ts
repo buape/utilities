@@ -2,8 +2,8 @@ import { Leaderboard, LevelData, Message } from "@buape/kiai-api-types"
 import { BaseHandler } from "."
 
 export class Leveling extends BaseHandler {
-    async getLeaderboard(guildId: string) {
-        const result = (await this._handler.request(`/guild/${guildId}/leaderboard`)) as Leaderboard
+    async getLeaderboard(guildId: string, start: number | undefined, end: number | undefined) {
+        const result = (await this._handler.request(`/guild/${guildId}/leaderboard${start != undefined ? `?start=${start}${end != undefined ? `&end=${end}` : ""}` : `${end != undefined ? `?end=${end}` : ""}`}`)) as Leaderboard
         return result
     }
 
