@@ -19,11 +19,11 @@ export class RequestHandler {
         this.fetchFunction = fetchFunction
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async request(
         endpoint: string,
         method: "GET" | "POST" | "PATCH" | "PUT" | "DELETE" = "GET",
         query = {},
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         body: { [key: string]: any } = {},
         noError = false
     ) {
