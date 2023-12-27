@@ -25,6 +25,8 @@ export const uploadHaste = async (
 	if (!res.ok) {
 		throw new Error("Failed to upload haste")
 	}
-	const data: { [key: string]: unknown } = await res.json()
+	const data: { [key: string]: unknown } = (await res.json()) as {
+		[key: string]: unknown
+	}
 	return `${url}/${data.key}.${type}`
 }
