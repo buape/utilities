@@ -2,7 +2,7 @@
 	"name": "@buape/dotperms",
 	"description": "A permissions utilities using permissions in the style of Minecraft",
 	"type": "module",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"author": {
 		"name": "Shadow",
 		"email": "hi@shadowing.dev"
