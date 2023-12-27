@@ -1,4 +1,11 @@
 {
 	"dotenv.enableAutocloaking": false,
-	"findUnusedExports.detectCircularImports": true
+	"editor.defaultFormatter": "biomejs.biome",
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"cSpell.words": ["disabledpagecount"],
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	}
 }

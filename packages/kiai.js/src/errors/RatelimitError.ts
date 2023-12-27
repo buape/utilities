@@ -1,6 +1,6 @@
 import { Message } from "@buape/kiai-api-types"
-import { Response } from "node-fetch"
 import ms from "ms"
+import { Response } from "node-fetch"
 
 /**
  * @extends Error
@@ -11,16 +11,20 @@ import ms from "ms"
  */
 
 export class RatelimitError extends Error {
-    name: string
-    status: number
-    remaining: number
-    message: string
+	name: string
+	status: number
+	remaining: number
+	message: string
 
-    constructor(response: Response, message?: Message) {
-        super()
-        this.name = this.constructor.name
-        this.status = response.status
-        this.remaining = parseInt(response.headers.get("Ratelimit-Remaining") ?? `${Date.now()}`)
-        this.message = message ? message.message : "You are currently ratelimited! Try again in " + ms(this.remaining)
-    }
+	constructor(response: Response, message?: Message) {
+		super()
+		this.name = this.constructor.name
+		this.status = response.status
+		this.remaining = parseInt(
+			response.headers.get("Ratelimit-Remaining") ?? `${Date.now()}`
+		)
+		this.message = message
+			? message.message
+			: `You are currently ratelimited! Try again in ${ms(this.remaining)}`
+	}
 }

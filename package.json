@@ -9,8 +9,8 @@
 		"coverage": "vitest run --coverage",
 		"docs": "typedoc",
 		"dev": "dotenv -- turbo run dev",
-		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
-		"lint": "turbo run lint",
+		"format": "biome format --write .",
+		"lint": "biome check . --apply",
 		"preinstall": "only-allow pnpm",
 		"pretty": "pnpm run format && pnpm run lint",
 		"test": "dotenv -- vitest",
@@ -21,21 +21,15 @@
 		"node": ">=16.20.0"
 	},
 	"dependencies": {
+		"@biomejs/biome": "^1.4.1",
 		"@changesets/cli": "^2.26.0",
-		"@typescript-eslint/eslint-plugin": "latest",
-		"@typescript-eslint/parser": "^6.0.0",
 		"dotenv-cli": "^7.2.1",
-		"eslint": "^8.38.0",
-		"eslint-config-prettier": "^9.0.0",
-		"eslint-config-turbo": "latest",
 		"prettier": "latest",
 		"tsc-watch": "^6.0.0",
 		"turbo": "latest",
 		"unbuild": "^2.0.0"
 	},
 	"devDependencies": {
-		"eslint-import-resolver-typescript": "^3.5.5",
-		"eslint-plugin-import": "^2.27.5",
 		"only-allow": "^1.1.1",
 		"rimraf": "^5.0.0",
 		"typedoc": "^0.25.0",

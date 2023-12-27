@@ -6,4 +6,9 @@ export interface UserPermissionSet {
 	[prop: string]: true | UserPermissionSet | null
 }
 
-export type Permission = `${string}.*` | `${string}.${string}.*` | `${string}.${string}.${string}` | `${string}.${string}` | "*"
+export type Permission =
+	| `${string}.*`
+	| `${string}.${string}.*`
+	| `${string}.${string}.${string}`
+	| `${string}.${string}`
+	| "*"

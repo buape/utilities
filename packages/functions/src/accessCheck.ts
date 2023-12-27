@@ -28,28 +28,39 @@ export interface AccessRoles {
  * @param settings - The settings to use for access checking.
  * @param client - The discord.js Client.
  */
-export const checkAccess = async (user: Snowflake, restriction: string | Array<string>, settings: AccessSettings, client: Client): Promise<boolean> => {
-    if (process.env.NODE_ENV === "development")
-        return client.application?.owner instanceof User
-            ? client.application?.owner?.id === user
-            : client.application?.owner?.members?.has(user) ?? false
+export const checkAccess = async (
+	user: Snowflake,
+	restriction: string | Array<string>,
+	settings: AccessSettings,
+	client: Client
+): Promise<boolean> => {
+	if (process.env.NODE_ENV === "development")
+		return client.application?.owner instanceof User
+			? client.application?.owner?.id === user
+			: client.application?.owner?.members?.has(user) ?? false
 
-    if (Array.isArray(restriction)) return restriction.some((r) => checkAccess(user, r, settings, client))
+	if (Array.isArray(restriction))
+		return restriction.some((r) => checkAccess(user, r, settings, client))
 
-    if (!settings.roles[restriction]) throw new Error(`No role was specified for the restriction type ${restriction}.`)
+	if (!settings.roles[restriction])
+		throw new Error(
+			`No role was specified for the restriction type ${restriction}.`
+		)
 
-    const data = await client.shard?.broadcastEval(
-        async (client, { settings, user }) => {
-            const staffGuild = await client.guilds.fetch(settings.server).catch(() => {})
-            if (!staffGuild) return null
-            return await staffGuild.members.fetch(user)
-        },
-        { context: { settings, user } }
-    )
+	const data = await client.shard?.broadcastEval(
+		async (client, { settings, user }) => {
+			const staffGuild = await client.guilds
+				.fetch(settings.server)
+				.catch(() => {})
+			if (!staffGuild) return null
+			return await staffGuild.members.fetch(user)
+		},
+		{ context: { settings, user } }
+	)
 
-    const member = data?.find((d) => d !== null) as APIGuildMember | undefined
+	const member = data?.find((d) => d !== null) as APIGuildMember | undefined
 
-    if (!member) return false
+	if (!member) return false
 
-    return member.roles.some((role) => settings.roles[restriction].includes(role))
+	return member.roles.some((role) => settings.roles[restriction].includes(role))
 }

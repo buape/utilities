@@ -8,7 +8,6 @@
 		"email": "hi@shadowing.dev"
 	},
 	"scripts": {
-		"lint": "eslint . --fix",
 		"build": "unbuild",
 		"clean": "rimraf dist"
 	},
