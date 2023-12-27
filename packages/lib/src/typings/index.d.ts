@@ -2,6 +2,7 @@ export interface LibConfig {
 	clientOptions: ClientOptions
 	accessSettings: AccessSettings
 	supportServer: string
+	prefix?: string
 }
 
 export enum LogLevel {

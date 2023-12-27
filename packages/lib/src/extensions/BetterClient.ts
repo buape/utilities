@@ -58,7 +58,7 @@ export default class BetterClient extends Client {
 		this.applicationCommands = new Collection()
 		this.autocompleteHandler = new AutocompleteHandler(this)
 
-		this.textCommandHandler = new TextCommandHandler(this)
+		this.textCommandHandler = new TextCommandHandler(this, config.prefix)
 		this.textCommands = new Collection()
 
 		this.buttonHandler = new ButtonHandler(this)

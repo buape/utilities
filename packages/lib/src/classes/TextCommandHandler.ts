@@ -5,9 +5,11 @@ import { BetterClient, LogLevel, TextCommand } from "../index.js"
 
 export default class TextCommandHandler {
 	public client: BetterClient
+	private customPrefix?: string
 
-	constructor(client: BetterClient) {
+	constructor(client: BetterClient, prefix?: string) {
 		this.client = client
+		this.customPrefix = prefix
 	}
 
 	public async loadFiles() {
@@ -50,7 +52,7 @@ export default class TextCommandHandler {
 	}
 
 	public async handle(message: Message) {
-		const prefix = `<@${this.client.user?.id}> `
+		const prefix = this.customPrefix ?? `<@${this.client.user?.id}> `
 		if (!prefix || !message.content.startsWith(prefix)) return
 		const args = message.content.slice(prefix.length).trim().split(/ +/g)
 		const commandName = args.shift()?.toLowerCase()
