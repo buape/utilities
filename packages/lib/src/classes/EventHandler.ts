@@ -1,10 +1,16 @@
 import { ClientEvents } from "discord.js"
-import { BetterClient, EventOptions, LogLevel } from "../index.js"
+import {
+	BetterClient,
+	EventEmitterLike,
+	EventOptions,
+	LogLevel
+} from "../index.js"
 
 export default class EventHandler {
 	public readonly name: keyof ClientEvents | string
 	public readonly client: BetterClient
 
+	private readonly emitter?: EventEmitterLike
 	private readonly _listener
 	private readonly once: boolean
 
@@ -16,6 +22,7 @@ export default class EventHandler {
 	constructor(client: BetterClient, options: EventOptions) {
 		this.name = options.name
 		this.client = client
+		this.emitter = options.emitter
 		this._listener = this._run.bind(this)
 		this.once = options.once || false
 	}
@@ -44,14 +51,16 @@ export default class EventHandler {
 	 * Listen for our event.
 	 */
 	public listen() {
-		if (this.once) return this.client.once(this.name, this._listener)
-		return this.client.on(this.name, this._listener)
+		const emitter = this.emitter || this.client
+		if (this.once) return emitter.once(this.name, this._listener)
+		return emitter.on(this.name, this._listener)
 	}
 
 	/**
 	 * Stop listening for our event.
 	 */
 	public removeListener() {
-		return this.client.off(this.name, this._listener)
+		const emitter = this.emitter || this.client
+		return emitter.off(this.name, this._listener)
 	}
 }
