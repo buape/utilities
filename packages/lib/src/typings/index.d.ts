@@ -22,8 +22,18 @@ import {
 	PermissionsBitField
 } from "discord.js"
 
+export interface EventEmitterLike {
+	// biome-ignore lint/suspicious/noExplicitAny: This can truly be any
+	on: (...args: any[]) => any
+	// biome-ignore lint/suspicious/noExplicitAny: This can truly be any
+	once: (...args: any[]) => any
+	// biome-ignore lint/suspicious/noExplicitAny: This can truly be any
+	off: (...args: any[]) => any
+}
+
 export interface EventOptions {
-	name: keyof ClientEvents | string
+	name: keyof ClientEvents | (string & {})
+	emitter?: EventEmitterLike
 	once?: boolean
 }
 
