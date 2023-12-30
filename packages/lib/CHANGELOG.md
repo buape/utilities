@@ -1,5 +1,11 @@
 # @buape/lib
 
+## 1.2.0
+
+### Minor Changes
+
+- 246d64b: Add ability to pass custom emitter to `EventHandler` via options
+
 ## 1.1.0
 
 ### Minor Changes
