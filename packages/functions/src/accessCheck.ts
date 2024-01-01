@@ -53,7 +53,7 @@ export const checkAccess = async (
 				.fetch(settings.server)
 				.catch(() => {})
 			if (!staffGuild) return null
-			return await staffGuild.members.fetch(user)
+			return await staffGuild.members.fetch(user).catch(() => {})
 		},
 		{ context: { settings, user } }
 	)

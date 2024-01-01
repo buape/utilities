@@ -2,7 +2,7 @@
 	"name": "@buape/functions",
 	"description": "Useful utility functions, mainly for use in Discord bots",
 	"type": "module",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"author": {
 		"name": "Shadow",
 		"email": "shadow@buape.com"
