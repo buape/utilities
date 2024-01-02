@@ -1,5 +1,11 @@
 # @buape/lib
 
+## 1.2.3
+
+### Patch Changes
+
+- ba35681: Make the restrictions property public
+
 ## 1.2.1
 
 ### Patch Changes
