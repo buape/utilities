@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint" />
+      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/dotperms/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/dotperms/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/experiments/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/experiments/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/functions/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/functions/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/kiai.js/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/kiai.js/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/lib/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/lib/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/temp" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="9a7d1696-3d51-477f-9a0c-ecdbf0571dae" />
+  </component>
+</module>
