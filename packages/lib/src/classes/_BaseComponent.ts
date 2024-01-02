@@ -60,7 +60,7 @@ export default class BaseComponent {
 		if (options.dmPermission) this.dmPermission = options.dmPermission
 		if (options.clientPermissions)
 			this.clientPermissions = options.clientPermissions
-		if (options.restriction) this.restriction = options.restriction
+		this.restriction = options.restriction
 		this.guildOnly = options.guildOnly || false
 		this.ownerOnly = options.ownerOnly || false
 		this.cooldown = options.cooldown || 0
