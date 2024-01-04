@@ -43,7 +43,7 @@
 	"dependencies": {
 		"@buape/kiai-api-types": "^1.1.1",
 		"ms": "^2.1.3",
-		"node-fetch": "^2.6.12"
+		"node-fetch": "^3.0.0"
 	},
 	"keywords": [
 		"kiai",
