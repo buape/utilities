@@ -41,7 +41,7 @@
 		"node": ">=16.17.1"
 	},
 	"dependencies": {
-		"@buape/kiai-api-types": "^1.1.1",
+		"@buape/kiai-api-types": "^1.1.2",
 		"ms": "^2.1.3",
 		"node-fetch": "^2.6.12"
 	},
