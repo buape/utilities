@@ -1,5 +1,11 @@
 # @buape/lib
 
+## 1.2.4
+
+### Patch Changes
+
+- 0c31a36: fix: Client is ready before events are loaded
+
 ## 1.2.3
 
 ### Patch Changes
