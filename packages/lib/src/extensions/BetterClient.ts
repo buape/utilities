@@ -81,7 +81,6 @@ export default class BetterClient extends Client {
 		this.applicationCommandHandler.loadFiles()
 		this.textCommandHandler.loadFiles()
 		this.modalSubmitHandler.loadModals()
-		this.loadEvents()
 	}
 
 	/**
@@ -186,14 +185,8 @@ export default class BetterClient extends Client {
 		return data
 	}
 
-	public override login(
-		token?: string | undefined
-	): ReturnType<Client["login"]> {
-		if (this.events.size === 0) {
-			this.loadEvents().then(() => {
-				return super.login(token)
-			})
-		}
+	public override async login(token?: string | undefined) {
+		await this.loadEvents()
 		return super.login(token)
 	}
 }

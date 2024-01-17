@@ -1,5 +1,11 @@
 # @buape/lib
 
+## 1.2.5
+
+### Patch Changes
+
+- fix: Fix the last fix to be fixed (loading events)
+
 ## 1.2.4
 
 ### Patch Changes

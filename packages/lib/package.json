@@ -2,7 +2,7 @@
 	"name": "@buape/lib",
 	"description": "A simple framework to create cross-platform Discord and Guilded bots",
 	"type": "module",
-	"version": "1.2.4",
+	"version": "1.2.5",
 	"author": {
 		"name": "Shadow",
 		"email": "shadow@buape.com"
