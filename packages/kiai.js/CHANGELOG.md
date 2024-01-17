@@ -1,5 +1,11 @@
 # kiai.js
 
+## 1.1.5
+
+### Patch Changes
+
+- 77f59b7: Rename `Blacklist` to `Denylist`
+
 ## 1.1.4
 
 ### Patch Changes
