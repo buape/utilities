@@ -185,4 +185,15 @@ export default class BetterClient extends Client {
 		const data = await uploadHaste(final, "md")
 		return data
 	}
+
+	public override login(
+		token?: string | undefined
+	): ReturnType<Client["login"]> {
+		if (this.events.size === 0) {
+			this.loadEvents().then(() => {
+				return super.login(token)
+			})
+		}
+		return super.login(token)
+	}
 }
