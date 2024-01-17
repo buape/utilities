@@ -63,8 +63,8 @@ importers:
   packages/kiai.js:
     dependencies:
       '@buape/kiai-api-types':
-        specifier: ^1.1.1
-        version: 1.1.1
+        specifier: ^1.1.2
+        version: 1.1.2
       ms:
         specifier: ^2.1.3
         version: 2.1.3
@@ -370,8 +370,8 @@ packages:
     dev: false
     optional: true
 
-  /@buape/kiai-api-types@1.1.1:
-    resolution: {integrity: sha512-6xUG3sJ2KNFt4SNr655JfTCNub4e8z8dc3Jrmqw1v/hg6GvYYiC9mKUmUBKyjjwoddqEuv/v2owLgT4XabL5bQ==}
+  /@buape/kiai-api-types@1.1.2:
+    resolution: {integrity: sha512-vhJLt7iB9e9WMZpzb3EHny8tyS+HOApTvDplxpIM8moBsCsKw+IqUCFhMHYME7fKn2Egv5kDq4UTTCE0x4Hgxg==}
     dev: false
 
   /@changesets/apply-release-plan@7.0.0:

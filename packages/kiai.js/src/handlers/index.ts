@@ -1,5 +1,5 @@
 export { BaseHandler } from "./BaseHandler"
-export { Blacklist } from "./Blacklist"
+export { Denylist, Blacklist } from "./Denylist"
 export { Leveling } from "./Leveling"
 export { Multipliers } from "./Multipliers"
 export { Rewards } from "./Rewards"

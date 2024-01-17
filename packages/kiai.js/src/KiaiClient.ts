@@ -11,7 +11,11 @@ export class KiaiClient {
 	debug: boolean
 	_requestHandler: RequestHandler
 
+	denylist: handlers.Denylist
+	/** @deprecated use `denylist` */
+	// TODO: Remove in the next major version
 	blacklist: handlers.Blacklist
+
 	leveling: handlers.Leveling
 	multipliers: handlers.Multipliers
 	rewards: handlers.Rewards
@@ -48,6 +52,8 @@ export class KiaiClient {
 			options?.fetchFunction ?? fetch
 		)
 
+		this.denylist = new handlers.Denylist(this._requestHandler)
+		// TODO: Remove in the next major version
 		this.blacklist = new handlers.Blacklist(this._requestHandler)
 		this.leveling = new handlers.Leveling(this._requestHandler)
 		this.multipliers = new handlers.Multipliers(this._requestHandler)
