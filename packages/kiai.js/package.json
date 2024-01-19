@@ -30,7 +30,8 @@
 		"url": "https://github.com/buape/utilities/issues"
 	},
 	"devDependencies": {
-		"@types/ms": "^0.7.31"
+		"@types/ms": "^0.7.34",
+		"@types/node": "^18.19.8"
 	},
 	"files": [
 		"dist",
