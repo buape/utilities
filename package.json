@@ -21,20 +21,20 @@
 		"node": ">=16.20.0"
 	},
 	"dependencies": {
-		"@biomejs/biome": "^1.4.1",
-		"@changesets/cli": "^2.26.0",
-		"dotenv-cli": "^7.2.1",
+		"@biomejs/biome": "^1.5.2",
+		"@changesets/cli": "^2.27.1",
+		"dotenv-cli": "^7.3.0",
 		"prettier": "latest",
-		"tsc-watch": "^6.0.0",
+		"tsc-watch": "^6.0.4",
 		"turbo": "latest",
 		"unbuild": "^2.0.0"
 	},
 	"devDependencies": {
-		"only-allow": "^1.1.1",
-		"rimraf": "^5.0.0",
-		"typedoc": "^0.25.0",
-		"typescript": "^5.0.0",
-		"vitest": "^1.0.0"
+		"only-allow": "^1.2.1",
+		"rimraf": "^5.0.5",
+		"typedoc": "^0.25.7",
+		"typescript": "^5.3.3",
+		"vitest": "^1.2.1"
 	},
 	"workspaces": [
 		"packages/*"
