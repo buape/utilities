@@ -1,6 +1,4 @@
 import { Message, RateLimitError, VirtualMessage } from "@buape/kiai-api-types"
-import fetch from "node-fetch"
-import { RequestInfo, RequestInit, Response } from "node-fetch"
 import { RequestHandler } from "./RequestHandler"
 import * as handlers from "./handlers"
 
@@ -36,7 +34,7 @@ export class KiaiClient {
 			version?: `v${number}`
 			debug?: boolean
 			fetchFunction: (
-				url: URL | RequestInfo,
+				url: URL | string,
 				init?: RequestInit | undefined
 			) => Promise<Response>
 		}
