@@ -1,5 +1,11 @@
 # kiai.js
 
+## 2.0.0
+
+### Major Changes
+
+- 653f3e8: Bump the required Node.js version to v18.19.0 (LTS)
+
 ## 1.1.5
 
 ### Patch Changes
