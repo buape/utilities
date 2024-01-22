@@ -1,6 +1,5 @@
 import { Message } from "@buape/kiai-api-types"
 import ms from "ms"
-import { Response } from "node-fetch"
 
 /**
  * @extends Error

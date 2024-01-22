@@ -1,13 +1,11 @@
 import { RateLimitError as APIRateLimitError } from "@buape/kiai-api-types"
-import fetch from "node-fetch"
-import { RequestInfo, RequestInit, Response } from "node-fetch"
 import { APIError, RatelimitError } from "."
 export class RequestHandler {
 	baseURL: string
 	apiKey: string
 	debug: boolean
 	fetchFunction: (
-		url: URL | RequestInfo,
+		url: URL | string,
 		init?: RequestInit | undefined
 	) => Promise<Response>
 	constructor(
@@ -15,7 +13,7 @@ export class RequestHandler {
 		apiKey: string,
 		debug = false,
 		fetchFunction: (
-			url: URL | RequestInfo,
+			url: URL | string,
 			init?: RequestInit | undefined
 		) => Promise<Response> = fetch
 	) {

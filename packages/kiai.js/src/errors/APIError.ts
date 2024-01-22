@@ -5,8 +5,6 @@
  * @property {string} message The message of this error
  */
 
-import { Response } from "node-fetch"
-
 export class APIError extends Error {
 	name: string
 	status: number
