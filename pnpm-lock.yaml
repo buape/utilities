@@ -16,7 +16,7 @@ importers:
         version: 2.27.1
       dotenv-cli:
         specifier: ^7.3.0
-        version: 7.3.0
+        version: 7.4.0
       prettier:
         specifier: latest
         version: 3.2.4
@@ -2081,12 +2081,12 @@ packages:
       domhandler: 5.0.3
     dev: false
 
-  /dotenv-cli@7.3.0:
-    resolution: {integrity: sha512-314CA4TyK34YEJ6ntBf80eUY+t1XaFLyem1k9P0sX1gn30qThZ5qZr/ZwE318gEnzyYP9yj9HJk6SqwE0upkfw==}
+  /dotenv-cli@7.4.0:
+    resolution: {integrity: sha512-fZGFOGCC5rEz1OJ0Pp+1LN8y78ClMcyXDmBEmjvJwqCqZVsPHcQ85bLCh5hZ4Bqotw4dptXOLvvw0vxm2MD30g==}
     hasBin: true
     dependencies:
       cross-spawn: 7.0.3
-      dotenv: 16.3.2
+      dotenv: 16.4.5
       dotenv-expand: 10.0.0
       minimist: 1.2.8
     dev: false
@@ -2096,8 +2096,8 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /dotenv@16.3.2:
-    resolution: {integrity: sha512-HTlk5nmhkm8F6JcdXvHIzaorzCoziNQT9mGxLPVXW8wJF1TiGSL60ZGB4gHWabHOaMmWmhvk2/lPHfnBiT78AQ==}
+  /dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
     engines: {node: '>=12'}
     dev: false
 
