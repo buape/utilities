@@ -22,7 +22,7 @@ importers:
         version: 3.2.4
       tsc-watch:
         specifier: ^6.0.4
-        version: 6.0.5(typescript@5.4.3)
+        version: 6.1.0(typescript@5.4.3)
       turbo:
         specifier: latest
         version: 1.11.3
@@ -4329,8 +4329,8 @@ packages:
     resolution: {integrity: sha512-k43M7uCG1AkTyxgnmI5MPwKoUvS/bRvLvUb7+Pgpdlmok8AoqmUaZxUUw8zKM5B1lqZrt41GjYgnvAi0fppqgQ==}
     dev: false
 
-  /tsc-watch@6.0.5(typescript@5.4.3):
-    resolution: {integrity: sha512-6pcEFEHJPsuJIzKBT/h/sX3CUmrFDJjHamCjtuQRWqb02rYX3eEnRTdL8nwDYIng8Y1AD/NHn4iLCi8a5MEKRg==}
+  /tsc-watch@6.1.0(typescript@5.4.3):
+    resolution: {integrity: sha512-bNjUt25O/qZb4Yb+PyrnKnJzu4rpCtGHGb0HE737mGnfxrRDbILxsUM1321o87Bl00BETZ0Ry+wDEJbYzcxRTA==}
     engines: {node: '>=12.12.0'}
     hasBin: true
     peerDependencies:
