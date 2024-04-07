@@ -38,7 +38,7 @@ importers:
         version: 5.0.5
       typedoc:
         specifier: ^0.25.7
-        version: 0.25.12(typescript@5.4.4)
+        version: 0.25.13(typescript@5.4.4)
       typescript:
         specifier: ^5.3.3
         version: 5.4.4
@@ -2523,7 +2523,7 @@ packages:
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 2.3.6
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       minipass: 7.0.4
       path-scurry: 1.10.1
     dev: true
@@ -3122,8 +3122,8 @@ packages:
       brace-expansion: 2.0.1
     dev: false
 
-  /minimatch@9.0.3:
-    resolution: {integrity: sha512-RHiac9mvaRw0x3AYRgDC1CxAP7HTcNrrECeA8YYJeWnpo+2Q5CegtZjaotWTWxDG3UeGA1coE05iH1mPjT/2mg==}
+  /minimatch@9.0.4:
+    resolution: {integrity: sha512-KqWh+VchfxcMNRAJjj2tnsSJdNbHsVgnkBhTNrW7AjVo6OvLtxw8zfT9oLw1JSohlFzJ8jCoTgaoXvJ+kHt6fw==}
     engines: {node: '>=16 || 14 >=14.17'}
     dependencies:
       brace-expansion: 2.0.1
@@ -4479,8 +4479,8 @@ packages:
       is-typed-array: 1.1.12
     dev: false
 
-  /typedoc@0.25.12(typescript@5.4.4):
-    resolution: {integrity: sha512-F+qhkK2VoTweDXd1c42GS/By2DvI2uDF4/EpG424dTexSHdtCH52C6IcAvMA6jR3DzAWZjHpUOW+E02kyPNUNw==}
+  /typedoc@0.25.13(typescript@5.4.4):
+    resolution: {integrity: sha512-pQqiwiJ+Z4pigfOnnysObszLiU3mVLWAExSPf+Mu06G/qsc3wzbuM56SZQvONhHLncLUhYzOVkjFFpFfL5AzhQ==}
     engines: {node: '>= 16'}
     hasBin: true
     peerDependencies:
@@ -4488,7 +4488,7 @@ packages:
     dependencies:
       lunr: 2.3.9
       marked: 4.3.0
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       shiki: 0.14.7
       typescript: 5.4.4
     dev: true
