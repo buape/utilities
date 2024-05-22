@@ -2,7 +2,7 @@
 	"name": "kiai.js",
 	"description": "The official Javascript wrapper for Kiai",
 	"type": "module",
-	"version": "2.1.0",
+	"version": "2.2.0",
 	"author": {
 		"name": "Shadow",
 		"email": "shadow@buape.com"

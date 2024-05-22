@@ -1,6 +1,6 @@
 # kiai.js
 
-This package is the official Javascript wrapper for the public API of [Kiai](https://kiaibot.com).
+This package is the official Javascript wrapper for the public API of [Kiai](https://kiai.app).
 
 ## Installation
 
