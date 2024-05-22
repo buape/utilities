@@ -1,5 +1,12 @@
 # kiai.js
 
+## 2.1.0
+
+### Minor Changes
+
+- 635723c: chore: update kiai-api-types
+  Adds the new parentId property to the virtual message endpoint
+
 ## 2.0.0
 
 ### Major Changes
