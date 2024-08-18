@@ -3,17 +3,32 @@
 	"extends": [
 		":dependencyDashboard",
 		":ignoreModulesAndTests",
+		":semanticPrefixFixDepsChoreOthers",
 		"group:monorepos",
 		"group:recommended",
 		"replacements:all",
 		"workarounds:all",
-		"helpers:disableTypesNodeMajor"
+		"helpers:disableTypesNodeMajor",
+		"schedule:earlyMondays"
 	],
 	"assigneesFromCodeOwners": true,
 	"automerge": true,
 	"automergeType": "pr",
 	"automergeStrategy": "squash",
 	"platformAutomerge": true,
-	"prConcurrentLimit": 10000,
-	"branchConcurrentLimit": 10000
+	"ignorePaths": ["**/archive/**"],
+	"packageRules": [
+		{
+			"matchUpdateTypes": ["patch"],
+			"groupName": "patch"
+		},
+		{
+			"matchUpdateTypes": ["minor"],
+			"groupName": "minor"
+		},
+		{
+			"matchDepTypes": ["devDependencies"],
+			"groupName": "devDependencies"
+		}
+	]
 }
