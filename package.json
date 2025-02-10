@@ -23,7 +23,7 @@
 	"dependencies": {
 		"@biomejs/biome": "^1.5.2",
 		"@changesets/cli": "^2.27.1",
-		"dotenv-cli": "^7.3.0",
+		"dotenv-cli": "^8.0.0",
 		"prettier": "latest",
 		"tsc-watch": "^6.0.4",
 		"turbo": "latest",
