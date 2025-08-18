@@ -25,7 +25,7 @@
 		"@changesets/cli": "^2.27.1",
 		"dotenv-cli": "^7.3.0",
 		"prettier": "latest",
-		"tsc-watch": "^6.0.4",
+		"tsc-watch": "^7.0.0",
 		"turbo": "latest",
 		"unbuild": "^2.0.0"
 	},
