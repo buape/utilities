@@ -21,7 +21,7 @@
 		"node": ">=16.20.0"
 	},
 	"dependencies": {
-		"@biomejs/biome": "^1.5.2",
+		"@biomejs/biome": "^2.0.0",
 		"@changesets/cli": "^2.27.1",
 		"dotenv-cli": "^7.3.0",
 		"prettier": "latest",
