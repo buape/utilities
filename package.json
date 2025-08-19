@@ -27,7 +27,7 @@
 		"prettier": "latest",
 		"tsc-watch": "^6.0.4",
 		"turbo": "latest",
-		"unbuild": "^2.0.0"
+		"unbuild": "^3.0.0"
 	},
 	"devDependencies": {
 		"only-allow": "^1.2.1",
